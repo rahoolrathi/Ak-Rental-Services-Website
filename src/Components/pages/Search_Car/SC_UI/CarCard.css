@@ -1,0 +1,80 @@
+.car-card {
+    width: 500px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .car-info {
+    margin-bottom: 20px;
+  }
+  
+  .car-image img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .model-name {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .pricing {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .price-detail {
+    text-align: left;
+  }
+  
+  .price-detail h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .price-detail button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .detail {
+    text-align: left;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .detail_R {
+    text-align: right;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .Size_{
+size: 300px;;
+  }
+  .details-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail_R {
+    display: flex;
+    align-items: right;
+  }
+  
+  .view-details {
+    font-size: 1rem;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
