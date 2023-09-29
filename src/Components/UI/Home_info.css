@@ -1,43 +1,48 @@
-/* HomeInfo.css */
-
-.container {
+body {
     font-family: Arial, sans-serif;
-    padding: 2rem;
+    background-color: black;
+    color: silver;
   }
   
   .section {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #333; /* Darker background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
+  .section-heading {
+    font-size: 2.5rem;
+    color: silver;
+    text-align: center;
   }
   
-  .subtitle {
+  .section-subheading {
     font-size: 1.5rem;
+    color: darkorange;
+    text-align: center;
     margin-bottom: 1.5rem;
-    color: #555;
   }
   
-  .paragraph {
+  .section-text {
     font-size: 1.2rem;
-    color: #444;
+    color: silver;
+    margin: 0 2rem 2rem 2rem;
   }
   
-  .list {
+  .section-list {
     list-style-type: none;
     padding: 0;
+    text-align: center;
   }
   
-  .list-item {
+  .section-list-item {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #555;
+    color: silver;
   }
+  
+  /* Add additional styles here as needed */
   
   

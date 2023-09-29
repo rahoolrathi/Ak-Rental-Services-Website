@@ -1,5 +1,6 @@
 import React from "react";
-import './Home_info.css'
+import "./Home_info.css"; // Import CSS file for styling
+
 const HomeInfo = () => {
   const intro =
     "At AK, we are dedicated to providing premium car rentals all over Pakistan. We have a fleet of the latest models of cars, an expert vehicle maintenance team, and robust car booking software—to provide you with excellent rental vehicles.  Dustgo Yoga Mat: Ideal for Home Fitness – Approvatoperte.it winstrol pill blonde fitness enthusiast all sweaty and  We pride ourselves on stellar services at affordable rates. To rent a car in Karachi, simply select your car on our website, provide us with basic information, including date and time, and we’ll send a prepped car with a professional driver to your doorstep.";
@@ -52,73 +53,77 @@ const HomeInfo = () => {
   ];
 
   return (
-    <div className="container">
-      <div className="section">
-        <h1 className="title">CAR RENTAL SERVICES IN KARACHI, PAKISTAN</h1>
-        <p className="paragraph">{intro}</p>
+    <div className="home-info-container">
+      <h1 className="section-heading">CAR RENTAL SERVICES IN KARACHI, PAKISTAN</h1>
+      <p className="section-text">{intro}</p>
+
+      <div className="section shopping">
+        <h1 className="section-heading">RENT A CAR IN KARACHI FOR SHOPPING</h1>
+        <h3 className="section-subheading">NEED A COMFY RIDE FOR A SHOPPING SPREE AROUND THE CITY?</h3>
+        <p className="section-text">{forShopping}</p>
       </div>
 
-      <div className="section">
-        <h1 className="title">RENT A CAR IN KARACHI FOR SHOPPING</h1>
-        <h3 className="subtitle">NEED A COMFY RIDE FOR A SHOPPING SPREE AROUND THE CITY?</h3>
-        <p className="paragraph">{forShopping}</p>
-      </div>
-
-      <div className="section">
-        <h1 className="title">FAMOUS MARKETS (BAZAARS) IN KARACHI</h1>
-        <ul className="list">
+      <div className="section markets">
+        <h2 className="section-subheading">FAMOUS MARKETS (BAZAARS) IN KARACHI</h2>
+        <ul className="section-list">
           {marketsInKarachi.map((market, index) => (
-            <li key={index} className="list-item">{market}</li>
+            <li key={index} className="section-list-item">
+              {market}
+            </li>
           ))}
         </ul>
       </div>
 
-      <div className="section">
-        <h1 className="title">FAMOUS SUPERMARKETS IN KARACHI</h1>
-        <ul className="list">
+      <div className="section supermarkets">
+        <h2 className="section-subheading">FAMOUS SUPERMARKETS IN KARACHI</h2>
+        <ul className="section-list">
           {famousSupermarketsInKarachi.map((supermarket, index) => (
-            <li key={index} className="list-item">{supermarket}</li>
+            <li key={index} className="section-list-item">
+              {supermarket}
+            </li>
           ))}
         </ul>
       </div>
 
-      <div className="section">
-        <h1 className="title">FAMOUS SHOPPING MALLS IN KARACHI</h1>
-        <ul className="list">
+      <div className="section shopping-malls">
+        <h2 className="section-subheading">FAMOUS SHOPPING MALLS IN KARACHI</h2>
+        <ul className="section-list">
           {famousShoppingMallsInKarachi.map((mall, index) => (
-            <li key={index} className="list-item">{mall}</li>
+            <li key={index} className="section-list-item">
+              {mall}
+            </li>
           ))}
         </ul>
       </div>
 
-      <div className="section">
-        <h1 className="title">RENT A CAR IN KARACHI FOR WEDDINGS</h1>
-        <h3 className="subtitle">MAKE YOUR OCCASIONS MORE MEMORABLE WITH A LUXURY RIDE!</h3>
-        <p className="paragraph">{weddingsInfo}</p>
+      <div className="section weddings">
+        <h1 className="section-heading">RENT A CAR IN KARACHI FOR WEDDINGS</h1>
+        <h3 className="section-subheading">MAKE YOUR OCCASIONS MORE MEMORABLE WITH A LUXURY RIDE!</h3>
+        <p className="section-text">{weddingsInfo}</p>
       </div>
 
-      <div className="section">
-        <h1 className="title">CHAUFFEURED CAR RENTALS</h1>
-        <p className="paragraph">{chauffeuredInfo}</p>
-        <p className="paragraph">Rent a chauffeured car with us today!</p>
+      <div className="section chauffeured">
+        <h2 className="section-subheading">CHAUFFEURED CAR RENTALS</h2>
+        <p className="section-text">{chauffeuredInfo}</p>
+        <p className="section-text">Rent a chauffeured car with us today!</p>
       </div>
 
-      <div className="section">
-        <h1 className="title">RENT A CAR IN KARACHI FOR AIRPORT TRANSFERS</h1>
-        <h3 className="subtitle">A QUICK AND RELAXING RIDE TO AND FROM THE AIRPORT</h3>
-        <p className="paragraph">{airportTransfersInfo}</p>
+      <div className="section airport-transfers">
+        <h1 className="section-heading">RENT A CAR IN KARACHI FOR AIRPORT TRANSFERS</h1>
+        <h3 className="section-subheading">A QUICK AND RELAXING RIDE TO AND FROM THE AIRPORT</h3>
+        <p className="section-text">{airportTransfersInfo}</p>
       </div>
 
-      <div className="section">
-        <h1 className="title">EXECUTIVE CLASS RENT A CAR IN KARACHI</h1>
-        <p className="paragraph">{executiveClassInfo}</p>
-        <p className="paragraph">LUXURY CAR, PROFESSIONAL TRANSPORT—A SEAMLESS EXECUTIVE EXPERIENCE!</p>
+      <div className="section executive-class">
+        <h2 className="section-subheading">EXECUTIVE CLASS RENT A CAR IN KARACHI</h2>
+        <p className="section-text">{executiveClassInfo}</p>
+        <p className="section-text">LUXURY CAR, PROFESSIONAL TRANSPORT—A SEAMLESS EXECUTIVE EXPERIENCE!</p>
       </div>
 
-      <div className="section">
-        <h1 className="title">RENT A CAR IN KARACHI FOR ONE WAY TRIPS</h1>
-        <h3 className="subtitle">NEED A CAR FOR A ONE-WAY TRIP TO YOUR LOCATION?</h3>
-        <p className="paragraph">{oneWayTripsInfo}</p>
+      <div className="section one-way-trips">
+        <h1 className="section-heading">RENT A CAR IN KARACHI FOR ONE WAY TRIPS</h1>
+        <h3 className="section-subheading">NEED A CAR FOR A ONE-WAY TRIP TO YOUR LOCATION?</h3>
+        <p className="section-text">{oneWayTripsInfo}</p>
       </div>
     </div>
   );
