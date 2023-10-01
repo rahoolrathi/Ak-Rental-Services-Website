@@ -3,25 +3,25 @@ import "./Home_info.css"; // Import CSS file for styling
 
 const HomeInfo = () => {
   const intro =
-    "At AK, we are dedicated to providing premium car rentals all over Pakistan. We have a fleet of the latest models of cars, an expert vehicle maintenance team, and robust car booking software—to provide you with excellent rental vehicles.  Dustgo Yoga Mat: Ideal for Home Fitness – Approvatoperte.it winstrol pill blonde fitness enthusiast all sweaty and  We pride ourselves on stellar services at affordable rates. To rent a car in Karachi, simply select your car on our website, provide us with basic information, including date and time, and we’ll send a prepped car with a professional driver to your doorstep.";
+  "At AK, we are dedicated to providing premium car rentals all over Pakistan. We have a fleet of the latest models of cars, an expert vehicle maintenance team, and robust car booking software—to provide you with excellent rental vehicles.  Dustgo Yoga Mat: Ideal for Home Fitness – Approvatoperte.it winstrol pill blonde fitness enthusiast all sweaty and  We pride ourselves on stellar services at affordable rates. To rent a car in Karachi, simply select your car on our website, provide us with basic information, including date and time, and we’ll send a prepped car with a professional driver to your doorstep.";
 
-  const forShopping =
-    "Karachi hosts a number of fantastic shopping areas. Whether you need to refresh household items, buy local or international brand clothing, or stock up on wholesale edible goods, you will find a market or mall for your needs. To make this shopping spree a relaxed one, why not rent a sleek car from Nafees Rent A Car? We offer car rental services with driver facilities for your trips to any of these places in Karachi.";
+const forShopping =
+  "Karachi hosts a number of fantastic shopping areas. Whether you need to refresh household items, buy local or international brand clothing, or stock up on wholesale edible goods, you will find a market or mall for your needs. To make this shopping spree a relaxed one, why not rent a sleek car from AK Rent A Car? We offer car rental services with driver facilities for your trips to any of these places in Karachi.";
 
-  const weddingsInfo =
-    "Weddings in Karachi can be as complex as they are enjoyable. After a whole day of rushing to sort gifts and get glammed up, the last thing you need is to worry about transportation to the venue. No worries—Nafees Rent A Car has you covered. We have a fleet of high-end cars with comfortable interiors to give you a hassle-free ride to get you to the venue on time!";
+const weddingsInfo =
+  "Weddings in Karachi can be as complex as they are enjoyable. After a whole day of rushing to sort gifts and get glammed up, the last thing you need is to worry about transportation to the venue. No worries—AK Rent A Car has you covered. We have a fleet of high-end cars with comfortable interiors to give you a hassle-free ride to get you to the venue on time!";
 
-  const chauffeuredInfo =
-    "In addition to our car rentals, we also offer car driver services. If you opt for a rented car with chauffeur services, we will send you a skilled, licensed, and highly professional driver to your doorstep to pick you up and whisk you away to your wedding festivities securely and punctually. Rent a chauffeured car with us today!";
+const chauffeuredInfo =
+  "In addition to our car rentals, we also offer car driver services. If you opt for a rented car with chauffeur services, we will send you a skilled, licensed, and highly professional driver to your doorstep to pick you up and whisk you away to your wedding festivities securely and punctually. Rent a chauffeured car with us today!";
 
-  const airportTransfersInfo =
-    "Travelling can be quite a hassle. Starting and ending a journey right with a nice ride at the airport is vital. Let Nafees Rent A Car facilitate a fantastic car rental service with a trained driver for all your airport transfers. We are available 24/7 for airport transfer services in Pakistan.";
+const airportTransfersInfo =
+  "Travelling can be quite a hassle. Starting and ending a journey right with a nice ride at the airport is vital. Let AK Rent A Car facilitate a fantastic car rental service with a trained driver for all your airport transfers. We are available 24/7 for airport transfer services in Pakistan.";
 
-  const executiveClassInfo =
-    "AK  A Car provides car rental services for various purposes, from casual to executive trips. Start your business deals in style to make a lasting impression by renting an excellent brand car, complete with a professional driver.";
+const executiveClassInfo =
+  "AK A Car provides car rental services for various purposes, from casual to executive trips. Start your business deals in style to make a lasting impression by renting an excellent brand car, complete with a professional driver.";
 
-  const oneWayTripsInfo =
-    "When it comes to one-way car rentals, and you need a comfy alternative to a cab or public transport, why not rent a remarkable ride at Nafees Rent A Car? We promise a smooth journey to any destination.";
+const oneWayTripsInfo =
+  "When it comes to one-way car rentals, and you need a comfy alternative to a cab or public transport, why not rent a remarkable ride at AK Rent A Car? We promise a smooth journey to any destination.";
 
   const marketsInKarachi = [
     "Bolton Market",
