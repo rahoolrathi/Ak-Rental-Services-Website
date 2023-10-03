@@ -11,12 +11,15 @@ const Booking_Form = () => {
         <div className="form-group">
           <label htmlFor="carSelect">Car Model:</label>
           <select id="carSelect">
-            <option value="15">Toyota Corolla</option>
-            <option value="2547">Toyota Revo</option>
-            <option value="2544">Toyota Prado</option>
-            <option value="14">Suzuki Alto</option>
-            <option value="2543">Honda BRV</option>
-            <option value="13">Honda Civic</option>
+        
+    <option value="Toyota Corolla">Toyota Corolla</option>
+    <option value="Toyota Revo">Toyota Revo</option>
+    <option value="Toyota Prado">Toyota Prado</option>
+    <option value="Suzuki Alto">Suzuki Alto</option>
+    <option value="Honda BRV">Honda BRV</option>
+    <option value="Honda Civic">Honda Civic</option>
+
+
           </select>
         </div>
         <div className="form-group">
