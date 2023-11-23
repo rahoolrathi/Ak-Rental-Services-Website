@@ -1,18 +1,24 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const listItemStyle = {
     display: "inline",
     margin: "0 40px",
-  
   };
 
   return (
     <nav>
       <ul style={{ textAlign: "center" }}>
-        <li style={listItemStyle}>Home</li>
-        <li style={listItemStyle}>Rent a Car by Local User</li>
-        <li style={listItemStyle}>Register your Car</li>
+        <li style={listItemStyle}>
+          <Link to='/'>Home</Link>
+        </li>
+        <li style={listItemStyle}>
+          <Link to='/rent'>Rent a Car by Local User</Link>
+        </li>
+        <li style={listItemStyle}>
+          <Link to='/register'>Register your Car</Link>
+        </li>
         <li style={listItemStyle}>Service</li>
         <li style={listItemStyle}>About</li>
         <li style={listItemStyle}>Contact us</li>

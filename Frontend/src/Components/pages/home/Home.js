@@ -9,14 +9,14 @@ import User_RegisteredCars from "../Search_Car/User_RegisteredCars";
 const Home = () => {
   return (
     <>
-      <Navbar />
+    
 
 
 
     {/* <User_RegisteredCars/> */}
     <ShowCars />
    
-   
+   <HomeInfo/>
     {/* <Personal_info/> */}
     
 
