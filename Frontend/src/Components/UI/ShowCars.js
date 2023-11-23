@@ -7,7 +7,7 @@ import SwiperCore from 'swiper/core';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Booking_Form from './Book_A_Car';
+import Booking_Form from '../pages/Car_Booking/BookingForm';
 
 // Install Swiper modules
 SwiperCore.use([Navigation]);
@@ -33,7 +33,7 @@ const Showcar = () => {
     fetchData();
   }, []);
 
-  const ShowHandler = (Reg_no, C_name, Price_Per_Day) => {
+  const NavigatetoBooking = (Reg_no, C_name, Price_Per_Day) => {
     setFormData({ Reg_no, C_name, Price_Per_Day });
     setShow(true);
   };
@@ -59,7 +59,7 @@ const Showcar = () => {
                     </div>
                     <button
                       className="reserve-button"
-                      onClick={() => ShowHandler(item.Reg_no, item.C_name, item.Price_Per_Day)}
+                      onClick={() => NavigatetoBooking(item.Reg_no, item.C_name, item.Price_Per_Day)}
                     >
                       Reserve Now
                     </button>
@@ -84,18 +84,7 @@ const Showcar = () => {
         <div className="swiper-button-prev"></div>
         <div className="swiper-button-next"></div>
       </Swiper>
-      <div>
-        {show && (
-          <div>
-            <br/>
-            <Booking_Form
-              Reg_no={formData.Reg_no}
-              C_name={formData.C_name}
-              Price_Per_Day={formData.Price_Per_Day}
-            />
-          </div>
-        )}
-      </div>
+      
     </Fragment>
   );
 };

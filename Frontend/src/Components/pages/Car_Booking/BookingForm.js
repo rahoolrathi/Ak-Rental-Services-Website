@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import Car_info from "../pages/Car_Booking/Car_info";
+import Car_info from "./Car_info";
 import "./BookingForm.css";
-import PersonalInfoForm from "../pages/Car_Booking/Personal_info";
+import PersonalInfoForm from "./Personal_info";
 const Booking_Form = (props) => {
   const [selectedCar, setSelectedCar] = useState(props.C_name);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [show,setShow]=useState(false);
 
-  const handleCarChange = (event) => {
-    setSelectedCar(event.target.value);
-  };
+
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
@@ -33,14 +31,6 @@ const Booking_Form = (props) => {
         </div>
         <div className="form-group">
           <label htmlFor="carSelect">Car Model:</label>
-          <select id="carSelect" value={selectedCar} onChange={handleCarChange}>
-            <option value="Toyota Corolla">Toyota Corolla</option>
-            <option value="Toyota Revo">Toyota Revo</option>
-            <option value="Toyota Prado">Toyota Prado</option>
-            <option value="Suzuki Alto">Suzuki Alto</option>
-            <option value="Honda BRV">Honda BRV</option>
-            <option value='Honda Civic'>Honda Civic</option>
-          </select>
         </div>
 
         <div className="form-group">

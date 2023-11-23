@@ -13,9 +13,7 @@ const Navbar = () => {
         <li style={listItemStyle}>
           <Link to='/'>Home</Link>
         </li>
-        <li style={listItemStyle}>
-          <Link to='/rent'>Rent a Car by Local User</Link>
-        </li>
+          <Link style={listItemStyle} to='/rent'>Rent a Car by Local User</Link>
         <li style={listItemStyle}>
           <Link to='/register'>Register your Car</Link>
         </li>
