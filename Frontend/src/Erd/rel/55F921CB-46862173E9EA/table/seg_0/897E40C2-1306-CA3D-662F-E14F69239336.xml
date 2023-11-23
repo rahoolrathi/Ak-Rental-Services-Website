@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="897E40C2-1306-CA3D-662F-E14F69239336" name="Rental_Reg">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>E12B2DCE-754B-D19D-D015-05D9BC627A0E</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<ordsAlias>rental_registration</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Reg_id" id="58BFEBC2-2939-B038-0B63-112F5C05324C">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>F187B278-2FC1-1288-FAA7-E0D85E55B854</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Days" id="43A96D4C-87C1-4996-C3A9-405831493784">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>0E8CDC0B-FCC2-29DA-D359-122FAD4E420E</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Commision" id="5E79845D-9FF2-BE32-21D6-8FEA63467A70">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>BF9C5C3F-E22F-302A-3B07-59DAF3DD6F0F</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Total_Price" id="6E38151C-37F0-3A93-55E9-324B257662D4">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>1E2496FE-579A-B3BC-5823-715BE2EEDFAD</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pick_up_TD" id="458F33D1-4F50-A8F6-C974-2788C44F8492">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>B123C411-9BBB-3E3E-B53A-92D0E294A488</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Drop_off_TD" id="793857C8-1026-9B23-3EE4-A29F5ABF3ABC">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>5CB132CC-C2CF-251F-0B22-D5ECBA65569D</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Customer_Cus_id" id="424977A9-E736-141D-D656-5E2C694EB060">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>950F4EF5-FCB3-5C27-D9A7-B6531BB7A249</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C648E34-9050-186D-DD2C-F17A7576E952" referredColumn="FCC9D9E9-AF9B-4150-E46E-D1BCD973706A"/>
+</associations>
+</Column>
+<Column name="Car_Reg_no" id="BCCF6C15-C896-8979-93C0-114CD8F55166">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>938C0199-69E9-C4F2-6D58-A2C0830AF7D3</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C24B76FE-F71F-4744-4879-EF29DB036D2C" referredColumn="E80E00F3-C289-3655-3904-B7E40B28562B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1C2B5076-125B-1FAE-91D5-BDFE96DD20B5" name="Rental_Regi_PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>70CF2F11-1ACD-D8EB-61D1-B96ADB1E9771</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58BFEBC2-2939-B038-0B63-112F5C05324C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E944F0C1-2108-C68C-DF9B-08B1AFBAD5C7" name="Rental_Regi_Customer_FK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:46 UTC</createdTime>
+<generatorID>590F02D4-7BA2-B693-C75E-3C879F87A571</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="424977A9-E736-141D-D656-5E2C694EB060"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="141CAB27-DEE5-49C3-4AC5-C6E51D7F6EA6" name="Rental_Regi_Car_FK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:46 UTC</createdTime>
+<generatorID>DE30986E-96BC-296D-E751-66F00740DBD1</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCCF6C15-C896-8979-93C0-114CD8F55166"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

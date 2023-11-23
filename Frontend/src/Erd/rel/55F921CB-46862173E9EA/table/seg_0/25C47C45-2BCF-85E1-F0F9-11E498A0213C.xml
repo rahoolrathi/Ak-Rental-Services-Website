@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25C47C45-2BCF-85E1-F0F9-11E498A0213C" name="Transactions">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>AE9DB9B0-5CF3-0DC6-6B48-63BDF0FB4200</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="T_id" id="9E2FA9F1-9DA6-BB13-F993-F24CB8DEC693">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>E06C6CD1-F9E5-CB53-157D-E13AA9AFACFF</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rental_Regi_Reg_id" id="66930137-E4A5-5236-0D1E-A42ED4803B57">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>DEEEC285-EC56-D423-783E-D3C859742BC4</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C11CA111-F489-06CF-B619-AC798BAB3561" referredColumn="58BFEBC2-2939-B038-0B63-112F5C05324C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="11329BD5-87E3-A5D9-C6F5-050CEC3BC706" name="Transactions_PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>3D23552C-EBB0-F703-82AC-ADAFA29D97AC</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E2FA9F1-9DA6-BB13-F993-F24CB8DEC693"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E4F0400-F965-B5E8-064C-52016B2FDD47" name="Transactions_Rental_Regi_FK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:46 UTC</createdTime>
+<generatorID>4F12CD6B-1FB4-E80B-EEA2-F8B315AE0471</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66930137-E4A5-5236-0D1E-A42ED4803B57"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

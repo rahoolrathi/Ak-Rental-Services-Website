@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Rental Registration Customer FK" directorySegmentName="seg_0" id="590F02D4-7BA2-B693-C75E-3C879F87A571">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:26:19 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<sourcePk>C93AB5F7-79A5-C2B4-5E03-2FA2556B16A5</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>76CA981A-8D5F-62E8-8606-9C3B9ADFFBD6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E12B2DCE-754B-D19D-D015-05D9BC627A0E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="21E9CE7B-7C4D-5FE5-9031-89EAEB1725FC" name="Car">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:56:00 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Reg no" id="8A681570-0BA2-ECB4-C77D-A6A8361F6BE9">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:56:25 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="C name" id="A37D04A6-DEEF-F7E4-314E-592B876D2B24">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:57:25 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Model" id="16CC9D43-2388-13D7-FE2D-357CFD556CA1">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:57:50 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Available" id="5D934E01-2946-4BC4-DE34-CF2A6BF91CCA">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:58:21 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descripton" id="C7FB3B6E-0298-8864-8D80-D3F71FA49A8A">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:58:54 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Price Per Day" id="FA1FE60F-372E-6E21-4B86-E091C43AD6E1">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:00:27 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Transmission" id="F7E5906F-CB4F-8DF3-D1B6-7BC7DEF0F2F3">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:00:52 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Mileage" id="4B8349AB-576C-6403-62E4-B0AFF7F11E14">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:01:12 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Int img" id="298AE56F-C1AD-AB60-A407-3E194EB55F39">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:01:43 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ext img" id="9BEB9EAA-BC9C-05F1-8017-986A9ED8B6F8">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:02:05 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Reg Year" id="B7772E45-93EB-69CE-B7AF-2830C7E76721">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:02:31 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Color" id="7F3CE97A-A713-58BF-5A53-263097EAAA7E">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:23:39 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="O id" id="5FEC60B8-1D7E-47A1-4B9C-681338285847">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:25:44 UTC</createdTime>
+<generatorID>F2FBF742-6E7A-DFAA-D437-DDE61D883994</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<referedAttribute>E1896BFA-78CC-5449-B192-ED1DBB1A5FBD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CR id" id="698B04C1-7D7A-D76E-90B2-51BD0F053995">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:30:01 UTC</createdTime>
+<generatorID>63FFAA46-7120-C8E4-07E8-150C26C32540</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<referedAttribute>0B4FA596-5DBB-4F93-DC5A-B278ACBF610A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DE3C4A0C-51BC-AC85-99F5-1667DD2540C5" name="Car PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 14:57:04 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8A681570-0BA2-ECB4-C77D-A6A8361F6BE9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

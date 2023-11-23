@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="B4C91288-A161-49BD-6E6D-E38DC6F7C79A" name="Car" seqName="seg_0"/>
+   <object objectType="Table" objectID="523F51E6-D3EB-468B-EC0B-C4B5973734F9" name="Car_Registration" seqName="seg_0"/>
+   <object objectType="Table" objectID="14BD1ADF-1693-DFE7-11AB-0C6C2BDD7F6C" name="Customer" seqName="seg_0"/>
+   <object objectType="Table" objectID="BECBF748-3AC0-2E99-0292-129613CCC436" name="Owner" seqName="seg_0"/>
+   <object objectType="Table" objectID="897E40C2-1306-CA3D-662F-E14F69239336" name="Rental_Reg" seqName="seg_0"/>
+   <object objectType="Table" objectID="25C47C45-2BCF-85E1-F0F9-11E498A0213C" name="Transactions" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0B120ABF-FF99-D7E3-1AAD-1DCC11E1D631" name="Car_Owner_FK" seqName="seg_0" containerID="B4C91288-A161-49BD-6E6D-E38DC6F7C79A" refContainerID="BECBF748-3AC0-2E99-0292-129613CCC436"/>
+   <object objectType="FKIndexAssociation" objectID="0436DD67-C558-B753-4E09-10A621BC8F17" name="Car_Registration_Car_FK" seqName="seg_0" containerID="523F51E6-D3EB-468B-EC0B-C4B5973734F9" refContainerID="B4C91288-A161-49BD-6E6D-E38DC6F7C79A"/>
+   <object objectType="FKIndexAssociation" objectID="C24B76FE-F71F-4744-4879-EF29DB036D2C" name="Rental_Regi_Car_FK" seqName="seg_0" containerID="897E40C2-1306-CA3D-662F-E14F69239336" refContainerID="B4C91288-A161-49BD-6E6D-E38DC6F7C79A"/>
+   <object objectType="FKIndexAssociation" objectID="6C648E34-9050-186D-DD2C-F17A7576E952" name="Rental_Regi_Customer_FK" seqName="seg_0" containerID="897E40C2-1306-CA3D-662F-E14F69239336" refContainerID="14BD1ADF-1693-DFE7-11AB-0C6C2BDD7F6C"/>
+   <object objectType="FKIndexAssociation" objectID="C11CA111-F489-06CF-B619-AC798BAB3561" name="Transactions_Rental_Regi_FK" seqName="seg_0" containerID="25C47C45-2BCF-85E1-F0F9-11E498A0213C" refContainerID="897E40C2-1306-CA3D-662F-E14F69239336"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="14BD1ADF-1693-DFE7-11AB-0C6C2BDD7F6C" name="Customer">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>76CA981A-8D5F-62E8-8606-9C3B9ADFFBD6</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cus_id" id="FCC9D9E9-AF9B-4150-E46E-D1BCD973706A">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>A9A73F92-4CB3-9B12-7ADE-25487FAECF92</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="AAA8A1EC-2E61-D74C-1070-419CFC6887FF">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>D763FDC9-BDA8-6682-5E0C-DB45A1B0597C</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Address" id="3FF6EDAC-20AC-4534-0980-EE5E70BEB3ED">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>6C3C3D08-7D1E-A40A-B665-127FE3078180</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Number" id="25F4EF93-025C-DD2F-5C1C-FB995CCC16EE">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>4F3117CF-C8E4-0908-FD33-9A66694ED8CF</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Age" id="93FECDEE-317C-FD8A-9F72-01EF72DB7B2A">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>05847D15-693D-759A-91FF-B409AC4056D9</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zip_code" id="740DAED2-B735-EDAD-EF72-DC49C358434C">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>A027E0D8-4165-D606-D9AC-5A15C390757E</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Gender" id="F3748BD7-5727-445B-5FD9-6DD425E0A770">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>073CDE93-A2F4-F855-4229-0F3A4ED8BCD2</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="43087A01-6208-7140-4E3D-6550465B5E3A" name="Customer_PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>C93AB5F7-79A5-C2B4-5E03-2FA2556B16A5</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FCC9D9E9-AF9B-4150-E46E-D1BCD973706A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

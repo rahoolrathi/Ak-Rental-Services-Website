@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Transactions Rental Registration FK" directorySegmentName="seg_0" id="4F12CD6B-1FB4-E80B-EEA2-F8B315AE0471">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:29:02 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<sourcePk>70CF2F11-1ACD-D8EB-61D1-B96ADB1E9771</sourcePk>
+<targetPk>3D23552C-EBB0-F703-82AC-ADAFA29D97AC</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E12B2DCE-754B-D19D-D015-05D9BC627A0E</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>AE9DB9B0-5CF3-0DC6-6B48-63BDF0FB4200</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

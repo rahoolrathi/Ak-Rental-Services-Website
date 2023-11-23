@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="523F51E6-D3EB-468B-EC0B-C4B5973734F9" name="Car_Registration">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>4DF35727-2536-3ED2-CA86-A47B46E4508C</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CR_id" id="F783B4A7-C255-C8AB-0F9C-F0CA7A3EE9AB">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>0B4FA596-5DBB-4F93-DC5A-B278ACBF610A</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Car_Reg_no" id="BDB3522C-D691-FE7C-6B17-72A05595494C">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>3BC5E9DF-C949-7157-E96F-EB8AF02347BC</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0436DD67-C558-B753-4E09-10A621BC8F17" referredColumn="E80E00F3-C289-3655-3904-B7E40B28562B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D06315D-A0CD-FB95-3F2A-6A8325484D87" name="Car_Registration_PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:45 UTC</createdTime>
+<generatorID>F582C474-237D-D28E-595F-0C7F16459BCC</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F783B4A7-C255-C8AB-0F9C-F0CA7A3EE9AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFF57E15-07CC-FD96-4CE4-5D2BAC7CF17D" name="Car_Registration_Car_FK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:31:46 UTC</createdTime>
+<generatorID>63FFAA46-7120-C8E4-07E8-150C26C32540</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDB3522C-D691-FE7C-6B17-72A05595494C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

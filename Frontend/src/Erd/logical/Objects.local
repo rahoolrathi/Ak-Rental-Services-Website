@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="21E9CE7B-7C4D-5FE5-9031-89EAEB1725FC" name="Car" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4DF35727-2536-3ED2-CA86-A47B46E4508C" name="Car Registration" seqName="seg_0"/>
+   <object objectType="Entity" objectID="76CA981A-8D5F-62E8-8606-9C3B9ADFFBD6" name="Customer" seqName="seg_0"/>
+   <object objectType="Entity" objectID="1D9BEEB2-6A31-DFC6-E580-A6D10CBC107A" name="Owner" seqName="seg_0"/>
+   <object objectType="Entity" objectID="E12B2DCE-754B-D19D-D015-05D9BC627A0E" name="Rental Reg" seqName="seg_0"/>
+   <object objectType="Entity" objectID="AE9DB9B0-5CF3-0DC6-6B48-63BDF0FB4200" name="Transactions" seqName="seg_0"/>
+   <object objectType="Relation" objectID="F2FBF742-6E7A-DFAA-D437-DDE61D883994" name="Car Owner FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="63FFAA46-7120-C8E4-07E8-150C26C32540" name="Car Registration Car FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="DE30986E-96BC-296D-E751-66F00740DBD1" name="Rental Registration Car FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="590F02D4-7BA2-B693-C75E-3C879F87A571" name="Rental Registration Customer FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="4F12CD6B-1FB4-E80B-EEA2-F8B315AE0471" name="Transactions Rental Registration FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

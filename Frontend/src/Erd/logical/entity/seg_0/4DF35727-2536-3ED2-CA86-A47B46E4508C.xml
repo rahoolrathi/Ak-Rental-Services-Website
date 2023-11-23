@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4DF35727-2536-3ED2-CA86-A47B46E4508C" name="Car Registration">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:18:19 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CR id" id="0B4FA596-5DBB-4F93-DC5A-B278ACBF610A">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:18:30 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Car Reg no" id="3BC5E9DF-C949-7157-E96F-EB8AF02347BC">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:29:57 UTC</createdTime>
+<generatorID>63FFAA46-7120-C8E4-07E8-150C26C32540</generatorID>
+<ownerDesignName>Erd</ownerDesignName>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="true"/>
+</engineerTo>
+<referedAttribute>8A681570-0BA2-ECB4-C77D-A6A8361F6BE9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F582C474-237D-D28E-595F-0C7F16459BCC" name="Car_Registration_PK">
+<createdBy>kante</createdBy>
+<createdTime>2023-10-21 15:19:47 UTC</createdTime>
+<ownerDesignName>Erd</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="55F921CB-7B8B-FD50-51D4-46862173E9EA" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0B4FA596-5DBB-4F93-DC5A-B278ACBF610A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
