@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const port = 3001;
 const mysql = require('mysql2');
+const uuid = require('uuid');
 
 app.use(cors()); // Enable CORS
 // Middleware to parse JSON request bodies
@@ -31,25 +32,40 @@ app.use(express.json());
 //Showing Data
 
 app.get('/', (req, res) => {
-  var query=`update Car C join  Rental_Reg R on C.reg_no =R.car_reg_no set C.available= 'Y' where R.car_reg_no=reg_no and R.drop_off_TD <=CURRENT_TIMESTAMP`
-  connection.query(query,(err)=>
-  {
-    if(err)
-    {
-      console.log("Error happened");
-    }
-  })
-  
-    query='select * from Car';
-  connection.query(query,(error,results)=>{
-    if(error)
-    {
-      res.send("Error Happened");
-    }
-    res.send(results);
-  })
+  // Update Car availability for cars with drop_off_TD in the past
+  const updateQuery = `
+    UPDATE Car C
+    JOIN Rental_Reg R ON C.reg_no = R.car_reg_no
+    SET C.available = 'Y'
+    WHERE R.car_reg_no = C.reg_no
+      AND R.drop_off_TD <= CURRENT_TIMESTAMP
+      AND R.drop_off_TD = (
+        SELECT MAX(drop_off_TD)
+        FROM Rental_Reg
+        WHERE car_reg_no = C.reg_no
+      )
+  `;
 
+  connection.query(updateQuery, (err) => {
+    if (err) {
+      console.error('Error updating Car availability:', err);
+      return res.status(500).send('Error updating Car availability');
+    }
+
+    // Select available cars
+    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y"';
+
+    connection.query(selectQuery, (error, results) => {
+      if (error) {
+        console.error('Error selecting available cars:', error);
+        return res.status(500).send('Error selecting available cars');
+      }
+
+      res.json(results);
+    });
+  });
 });
+
 
 
 
@@ -140,8 +156,13 @@ app.post('/RegisterCar', (req, res) => {
 
 //For Customer Registration
 
+
 app.post('/customer', (req, res) => {
-  const { Cus_id, Name, Address, ph_Number, Age, Zip_code, Gender } = req.body;
+  console.log(req.body)
+  const { Name, Address, ph_Number, Age, Zip_code, Gender } = req.body;
+
+  // Generate a UUID for Cus_id
+  const Cus_id = 'C'+uuid.v4().substring(0, 9);
 
   const values = [Cus_id, Name, Address, ph_Number, Age, Zip_code, Gender];
 
@@ -150,9 +171,8 @@ app.post('/customer', (req, res) => {
   connection.query(query, values, (error, result) => {
     if (error) {
       res.status(500).send("Not inserted error: " + error.message);
-      res.send(values)
     } else {
-      res.send("Customer Inserted Successfully");
+      res.send(["Customer Inserted Successfully",Cus_id]);
     }
   });
 });
@@ -160,11 +180,13 @@ app.post('/customer', (req, res) => {
 
 
 
-
 //For Renting  car
 
 app.post('/rental', (req, res) => {
-  const { Reg_id, Days, Commision, Total_Price, Pick_up_TD, Drop_off_TD, Customer_Cus_id, Car_Reg_no, T_id } = req.body;
+  console.log(req.body)
+  const { Days, Commision, Total_Price, Pick_up_TD, Drop_off_TD, Customer_Cus_id, Car_Reg_no } = req.body;
+  Reg_id='R'+uuid.v4().substring(0, 10);
+  T_id='T'+uuid.v4().substring(0, 10);
   const pickUpDate = new Date(Pick_up_TD);
   const formattedPickUpDate = pickUpDate.toISOString().slice(0, 19).replace('T', ' ');
   const dropOffDate = new Date(Drop_off_TD);

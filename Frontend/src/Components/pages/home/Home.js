@@ -7,18 +7,14 @@ import Car_info from "../Car_Booking/Car_info";
 import Personal_info from "../Car_Booking/Personal_info";
 import User_RegisteredCars from "../Search_Car/User_RegisteredCars";
 import BookingPage from '../Car_Booking/Booking_Page'
+import CarRegistrationForm from "../Registration/CarRegistration";
 const Home = () => {
   return (
     <>
-    <BookingPage/>
-
-
-
-    {/* <User_RegisteredCars/> */}
-    {/* <ShowCars />
+    {/* <CarRegistrationForm></CarRegistrationForm> */}
+  <ShowCars />
    
-   <HomeInfo/> */}
-    {/* <Personal_info/> */}
+   <HomeInfo/>  
     
 
     </>

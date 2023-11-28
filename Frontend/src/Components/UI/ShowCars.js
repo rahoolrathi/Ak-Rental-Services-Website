@@ -10,9 +10,11 @@ import 'swiper/css/navigation';
 import Booking_Form from '../pages/Car_Booking/BookingForm';
 
 // Install Swiper modules
+import { useNavigate } from 'react-router-dom';
 SwiperCore.use([Navigation]);
 
 const Showcar = () => {
+  var navigate=useNavigate();
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     Reg_no: '',
@@ -34,9 +36,11 @@ const Showcar = () => {
   }, []);
 
   const NavigatetoBooking = (Reg_no, C_name, Price_Per_Day) => {
-    setFormData({ Reg_no, C_name, Price_Per_Day });
-    setShow(true);
+    const newData = { Reg_no, C_name, Price_Per_Day };
+    setFormData(newData);
+    navigate('/Bookingpage', { state: newData });
   };
+  
 
   return (
     <Fragment>
@@ -58,11 +62,12 @@ const Showcar = () => {
                       <p>{`Price: ${item.Price_Per_Day}`}</p>
                     </div>
                     <button
-                      className="reserve-button"
-                      onClick={() => NavigatetoBooking(item.Reg_no, item.C_name, item.Price_Per_Day)}
-                    >
-                      Reserve Now
-                    </button>
+  className="reserve-button"
+  onClick={() => NavigatetoBooking(item.Reg_no, item.C_name, item.Price_Per_Day)}
+>
+  Reserve Now
+</button>
+
                   </div>
                   <div className="image">
                     <img src={Civic_img} alt="Civic" />

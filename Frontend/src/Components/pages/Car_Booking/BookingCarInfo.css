@@ -1,0 +1,43 @@
+.booking-car-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent /* Set background color with transparency */
+  }
+  
+  .booking-box {
+    max-width: 600px; /* Adjust the max-width to your preference */
+    width: 100%;
+    padding: 20px;
+    border-radius: 50px;
+background-color: aliceblue;
+  }
+  
+  .car-info {
+    text-align: center;
+    color: #333;
+  }
+  
+  .car-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .car-price {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .date-of-booking {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .car-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  

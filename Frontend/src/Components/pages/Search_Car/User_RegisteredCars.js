@@ -38,6 +38,7 @@ const User_RegisteredCars = () => {
             {carData.map((car, index) => (
               <Grid key={car.Reg_no} item xs={12} sm={6}>
                 <Car_Card 
+                Reg_no={car.Reg_no}
                   C_name={car.C_name}
                   Model={car.Model}
                   Transmission={car.Transmission}

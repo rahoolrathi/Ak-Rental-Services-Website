@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Ch
 import User_RegisteredCars from "./Components/pages/Search_Car/User_RegisteredCars";
 import CarRegistration from "./Components/pages/Registration/CarRegistration"; 
 import Navbar from "./Components/UI/Navbar";
-
+import BookingPage from "./Components/pages/Car_Booking/Booking_Page";
 function App() {
   return (
     <Router>
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/rent' element={<User_RegisteredCars/>} />
+        <Route path='/Bookingpage' element={<BookingPage/>}/>
         <Route path="/Register" element={<CarRegistration />} />
       </Routes>
     </Router>

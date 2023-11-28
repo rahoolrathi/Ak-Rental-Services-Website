@@ -1,5 +1,6 @@
 .form-container {
-    max-width: 950px;
+    max-width: 1000px;
+
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -9,7 +10,12 @@
     padding: 30px;
     border-radius: 10px;
     background: #f9f9f9;
+    /* align-items: flex-start; Remove or change this line */
+    width: 950px;
+    margin: 0 auto; /* Add this line to center the form horizontally */
 }
+
+
 
 .form-title {
     text-align: center;

@@ -5,9 +5,14 @@ import Seat from "../../../Assets/seat.png";
 import gear from "../../../Assets/gaer.png";
 import time from "../../../Assets/time.png";
 import fullday from "../../../Assets/fullday.png";
+
 import './CarCard.css'; // Assuming you have a CSS file for styling
+import { useNavigate } from 'react-router-dom';
+
 const Car_Card = (props) => {
-  const {
+  const navigate=useNavigate();
+  var {
+    Reg_no,
     C_name,
     Model,
     Transmission,
@@ -17,7 +22,15 @@ const Car_Card = (props) => {
     Color,
     ImageSrc, // Add a new prop for the image source
   } = props;
-
+  const NavigatetoBooking = (Driver) => {
+    if(Driver)
+    {
+      Price_Per_Day=Price_Per_Day+500;
+    }
+    const newData = { Reg_no, C_name, Price_Per_Day };
+    navigate('/Bookingpage', { state: newData });
+  };
+  
   return (
     <div className="car-card">
       <div className="car-info">
@@ -45,11 +58,11 @@ Self Drive (24hrs)</span>
       <div className="price-section">
         <div className="price-detail">
           <h2>{`${Price_Per_Day}/day`}</h2>
-          <button>With Driver</button>
+          <button onClick={() => NavigatetoBooking(true)}>With Driver</button>
         </div>
         <div className="price-detail">
           <h2>{`${Price_Per_Day - 500}/day`}</h2>
-          <button>Without Driver</button>
+          <button onClick={() => NavigatetoBooking(false)}>Without Driver</button>
         </div>
       </div>
 
