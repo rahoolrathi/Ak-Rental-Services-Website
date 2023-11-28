@@ -77,7 +77,7 @@ const Showcar = () => {
                     <div className="info-item">{`Passengers: ${item.Passengers}`}</div>
                     <div className="info-item">{`Luggage: ${item.Luggage}`}</div>
                     <div className="info-item">{`Transmission: ${item.Transmission}`}</div>
-                    <div className="info-item">{`Air Condition: ${item.AirCondition}`}</div>
+                    <div className="info-item">{`Air Condition: ${item.AC}`}</div>
                   </div>
                 </div>
               </div>

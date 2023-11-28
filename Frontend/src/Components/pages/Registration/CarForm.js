@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './CarForm.css';
 
-const CarForm = ({ onBack ,datapass}) => {
+const CarForm = ({ onBack, datapass }) => {
   const [carData, setCarData] = useState({
     Reg_no: '',
     C_name: '',
@@ -17,6 +17,9 @@ const CarForm = ({ onBack ,datapass}) => {
     Ext_img: '',
     Reg_Year: '',
     Color: '',
+    Doors: '',
+    Passengers: '',
+    Luggage: '',
   });
 
   const handleChange = (e) => {
@@ -28,14 +31,14 @@ const CarForm = ({ onBack ,datapass}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    datapass(carData)
-
+    datapass(carData);
   };
 
   return (
     <div className="form-container">
       <h2>Car Information</h2>
       <form onSubmit={handleSubmit}>
+        {/* Existing fields */}
         <label>
           Reg_no:
           <input type="text" name="Reg_no" value={carData.Reg_no} onChange={handleChange} />
@@ -47,10 +50,6 @@ const CarForm = ({ onBack ,datapass}) => {
         <label>
           Model:
           <input type="text" name="Model" value={carData.Model} onChange={handleChange} />
-        </label>
-        <label>
-          Available:
-          <input type="text" name="Available" value={carData.Available} onChange={handleChange} />
         </label>
         <label>
           Descripton:
@@ -84,8 +83,48 @@ const CarForm = ({ onBack ,datapass}) => {
           Color:
           <input type="text" name="Color" value={carData.Color} onChange={handleChange} />
         </label>
+
+        {/* Additional fields */}
+        <label>
+          Doors:
+          <input type="text" name="Doors" value={carData.Doors} onChange={handleChange} />
+        </label>
+        <label>
+          Passengers:
+          <input type="text" name="Passengers" value={carData.Passengers} onChange={handleChange} />
+        </label>
+        <label>
+          Luggage:
+          <input type="text" name="Luggage" value={carData.Luggage} onChange={handleChange} />
+        </label>
+        <label>
+          Air Conditioning:
+          <div className="radio-group">
+            <input
+              type="radio"
+              id="airConditioningYes"
+              name="Air_Conditioning"
+              value='Y'
+              checked={carData.Air_Conditioning === 'Y'}
+              onChange={handleChange}
+            />
+            <label htmlFor="airConditioningYes">Yes</label>
+
+            <input
+              type="radio"
+              id="airConditioningNo"
+              name="Air_Conditioning"
+              value='N'
+              checked={carData.Air_Conditioning === 'N'}
+              onChange={handleChange}
+            />
+            <label htmlFor="airConditioningNo">No</label>
+          </div>
+        </label>
         <button type="submit">Submit Car Data</button>
-        <button type="button" onClick={onBack}>Back</button>
+        <button type="button" onClick={onBack}>
+          Back
+        </button>
       </form>
     </div>
   );

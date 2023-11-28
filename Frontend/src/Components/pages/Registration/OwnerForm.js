@@ -30,10 +30,6 @@ const OwnerForm = ({ onNext }) => {
       <h2>Owner Information</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          O_id:
-          <input type="text" name="O_id" value={ownerData.O_id} onChange={handleChange} />
-        </label>
-        <label>
           Name:
           <input type="text" name="Name" value={ownerData.Name} onChange={handleChange} />
         </label>

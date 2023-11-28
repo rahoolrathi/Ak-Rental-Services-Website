@@ -72,84 +72,116 @@ app.get('/', (req, res) => {
 
 //For car registration Takes Owner Car and Resgisration info
 
+// app.js
 
-app.post('/RegisterCar', (req, res) => {
+// ... (other imports and configurations)
+
+app.post('/RegisterCar', async (req, res) => {
+  console.log(req.body)
   const {
-      O_id,
-      Name,
-      Address,
-      ph_Number,
-      Gender,
-      Reg_no,
-      C_name,
-      Model,
-      Available,
-      Descripton,
-      Price_Per_Day,
-      Transmission,
-      Mileage,
-      Int_img,
-      Ext_img,
-      Reg_Year,
-      Color,
-      Owner_O_id,
-      CR_id,
-      Car_Reg_no
+    O_id,
+    Name,
+    Address,
+    ph_Number,
+    Gender,
+    Reg_no,
+    C_name,
+    Model,
+    Available,
+    Descripton,
+    Price_Per_Day,
+    Transmission,
+    Mileage,
+    Int_img,
+    Ext_img,
+    Reg_Year,
+    Color,
+    Owner_O_id,
+    CR_id,
+    Car_Reg_no,
+    Doors,         // Include Doors in the request
+    Passengers,    // Include Passengers in the request
+    Luggage,       // Include Luggage in the request
+    Air_Conditioning,  // Keeping Air_Conditioning as per previous request
   } = req.body;
 
   const owner = [O_id, Name, Address, ph_Number, Gender];
-  const Car = [Reg_no, C_name, Model, Available, Descripton, Price_Per_Day, Transmission, Mileage, Int_img, Ext_img, Reg_Year, Color, Owner_O_id];
+  const Car = [
+    Reg_no,
+    C_name,
+    Model,
+    Available,
+    Descripton,
+    Price_Per_Day,
+    Transmission,
+    Mileage,
+    Int_img,
+    Ext_img,
+    Reg_Year,
+    Color,
+    Owner_O_id,
+    Doors,         // Include Doors in the Car array
+    Passengers,    // Include Passengers in the Car array
+    Luggage,       // Include Luggage in the Car array
+    Air_Conditioning
+  ];
+  console.log(Car)
   const CR = [CR_id, Car_Reg_no];
-  const queryOwner = 'insert into owner ( O_id, Name, Address, ph_Number, Gender) values (?,?,?,?,?)';
-  const queryCar = 'insert into Car (Reg_no  ,  C_name  ,   Model ,   Available  ,   Descripton  ,   Price_Per_Day  ,  Transmission  ,  Mileage  ,  Int_img  ,  Ext_img  ,  Reg_Year  ,  Color  ,    Owner_O_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)';
-  const queryCR = 'insert into car_registration (CR_id,Car_Reg_no) values(?,?)';
+  const queryOwner = 'INSERT INTO owner (O_id, Name, Address, ph_Number, Gender) VALUES (?, ?, ?, ?, ?)';
+  const queryCar = `
+    INSERT INTO Car 
+      (Reg_no, C_name, Model, Available, Descripton, Price_Per_Day, Transmission, Mileage, Int_img, Ext_img, Reg_Year, Color, Owner_O_id, Doors, Passengers, Luggage, AC) 
+    VALUES 
+      (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const queryCR = 'INSERT INTO car_registration (CR_id, Car_Reg_no) VALUES (?, ?)';
   let rollbackNeeded = false;
 
   connection.beginTransaction((err) => {
-      if (err) throw err;
+    if (err) throw err;
 
-      connection.query(queryOwner, owner, (err) => {
+    connection.query(queryOwner, owner, (err) => {
+      if (err) {
+        rollbackNeeded = true;
+        console.log("owner")
+        return connection.rollback(() => {
+          res.status(500).send("Error inserting Owner: " + err.message);
+        });
+      }
+
+      connection.query(queryCar, Car, (err) => {
+        if (err) {
+          rollbackNeeded = true;
+          console.log("Car"+err.message)
+          return connection.rollback(() => {
+            res.status(500).send("Error inserting Car: " + err.message);
+          });
+        }
+
+        connection.query(queryCR, CR, (err) => {
           if (err) {
-              rollbackNeeded = true;
-              return connection.rollback(() => {
-                  res.status(500).send("Error inserting Owner: " + err.message);
-              });
+            rollbackNeeded = true;
+            console.log("Cr"+err.message)
+            return connection.rollback(() => {
+              res.status(500).send("Error inserting CR: " + err.message);
+            });
           }
 
-          connection.query(queryCar, Car, (err) => {
+          if (!rollbackNeeded) {
+            connection.commit((err) => {
               if (err) {
-                  rollbackNeeded = true;
-                  return connection.rollback(() => {
-                      res.status(500).send("Error inserting Car: " + err.message);
-                  });
+                return connection.rollback(() => {
+                  res.status(500).send("Error committing transaction: " + err.message);
+                });
               }
 
-              connection.query(queryCR, CR, (err) => {
-                  if (err) {
-                      rollbackNeeded = true;
-                      return connection.rollback(() => {
-                          res.status(500).send("Error inserting CR: " + err.message);
-                      });
-                  }
-
-                  if (!rollbackNeeded) {
-                      connection.commit((err) => {
-                          if (err) {
-                              return connection.rollback(() => {
-                                  res.status(500).send("Error committing transaction: " + err.message);
-                              });
-                          }
-
-                          res.send("Car registered successfully!");
-                      });
-                  }
-              });
-          });
+              res.send("Car registered successfully!");
+            });
+          }
+        });
       });
+    });
   });
 });
-
-
 
 
 
