@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Booking_Form from '../pages/Car_Booking/BookingForm';
 
+
 // Install Swiper modules
 import { useNavigate } from 'react-router-dom';
 SwiperCore.use([Navigation]);
@@ -20,6 +21,7 @@ const Showcar = () => {
     Reg_no: '',
     C_name: '',
     Price_Per_Day: '',
+    Int_img:''
   });
   const [Data, setData] = useState([]);
 
@@ -35,8 +37,8 @@ const Showcar = () => {
     fetchData();
   }, []);
 
-  const NavigatetoBooking = (Reg_no, C_name, Price_Per_Day) => {
-    const newData = { Reg_no, C_name, Price_Per_Day };
+  const NavigatetoBooking = (Reg_no, C_name, Price_Per_Day,Int_img) => {
+    const newData = { Reg_no, C_name, Price_Per_Day,Int_img };
     setFormData(newData);
     navigate('/Bookingpage', { state: newData });
   };
@@ -63,15 +65,16 @@ const Showcar = () => {
                     </div>
                     <button
   className="reserve-button"
-  onClick={() => NavigatetoBooking(item.Reg_no, item.C_name, item.Price_Per_Day)}
+  onClick={() => NavigatetoBooking(item.Reg_no, item.C_name, item.Price_Per_Day,item.Int_img)}
 >
   Reserve Now
 </button>
 
                   </div>
                   <div className="image">
-                    <img src={Civic_img} alt="Civic" />
+                  <img src={require(`../Assets/${item.Int_img}`)} alt="Civic" />
                   </div>
+                
                   <div className="inside-info">
                     <div className="info-item">{`Doors: ${item.Doors}`}</div>
                     <div className="info-item">{`Passengers: ${item.Passengers}`}</div>
@@ -85,7 +88,7 @@ const Showcar = () => {
           ))}
         </div>
 
-        {/* Navigation Buttons */}
+  
         <div className="swiper-button-prev"></div>
         <div className="swiper-button-next"></div>
       </Swiper>

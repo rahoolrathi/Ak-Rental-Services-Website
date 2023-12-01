@@ -10,6 +10,7 @@ const OwnerForm = ({ onNext }) => {
     Address: '',
     ph_Number: '',
     Gender: '',
+    password:''
   });
 
   const handleChange = (e) => {
@@ -27,11 +28,15 @@ const OwnerForm = ({ onNext }) => {
 
   return (
     <div className="form-container">
-      <h2>Owner Information</h2>
+      <h2>Owner Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
+          Username:
           <input type="text" name="Name" value={ownerData.Name} onChange={handleChange} />
+        </label>
+        <label>
+          Password:
+          <input type="password" name="password" value={ownerData.password} onChange={handleChange} />
         </label>
         <label>
           Address:

@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import './SC_UI/User_RegisteredCars.css'
+import './SC_UI/User_RegisteredCars.css';
 
 const User_RegisteredCars = () => {
   const [carData, Set_Data] = useState([]);
@@ -46,7 +46,7 @@ const User_RegisteredCars = () => {
                   Price_Per_Day={car.Price_Per_Day}
                   Description={car.Descripton}
                   Color={car.Color}
-                  ImageSrc={Civic}
+                  ImageSrc={require(`../../Assets/${car.Int_img}`)}
                 />
               </Grid>
             ))}

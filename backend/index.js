@@ -4,7 +4,20 @@ const app = express();
 const port = 3001;
 const mysql = require('mysql2');
 const uuid = require('uuid');
+const multer = require('multer');
 
+
+const storage = multer.diskStorage({
+  destination:function(req,file,cb)
+  {
+    return cb(null,"../Frontend/src/Components/Assets")
+  },
+  filename:function(req,file,cb)
+  {
+    return cb(null,`${Date.now()}_${file.originalname}`);
+  }
+});
+const upload = multer({ storage: storage });
 app.use(cors()); // Enable CORS
 // Middleware to parse JSON request bodies
 
@@ -28,7 +41,6 @@ app.use(express.json());
 
 
 
-
 //Showing Data
 
 app.get('/', (req, res) => {
@@ -45,7 +57,6 @@ app.get('/', (req, res) => {
         WHERE car_reg_no = C.reg_no
       )
   `;
-
   connection.query(updateQuery, (err) => {
     if (err) {
       console.error('Error updating Car availability:', err);
@@ -68,140 +79,169 @@ app.get('/', (req, res) => {
 
 
 
+app.post('/SignIn', async (req, res) => {
+  try {
+    const { id, password } = req.body;
 
-
-//For car registration Takes Owner Car and Resgisration info
-
-// app.js
-
-// ... (other imports and configurations)
-
-app.post('/RegisterCar', async (req, res) => {
-  console.log(req.body)
-  const {
-    O_id,
-    Name,
-    Address,
-    ph_Number,
-    Gender,
-    Reg_no,
-    C_name,
-    Model,
-    Available,
-    Descripton,
-    Price_Per_Day,
-    Transmission,
-    Mileage,
-    Int_img,
-    Ext_img,
-    Reg_Year,
-    Color,
-    Owner_O_id,
-    CR_id,
-    Car_Reg_no,
-    Doors,         // Include Doors in the request
-    Passengers,    // Include Passengers in the request
-    Luggage,       // Include Luggage in the request
-    Air_Conditioning,  // Keeping Air_Conditioning as per previous request
-  } = req.body;
-
-  const owner = [O_id, Name, Address, ph_Number, Gender];
-  const Car = [
-    Reg_no,
-    C_name,
-    Model,
-    Available,
-    Descripton,
-    Price_Per_Day,
-    Transmission,
-    Mileage,
-    Int_img,
-    Ext_img,
-    Reg_Year,
-    Color,
-    Owner_O_id,
-    Doors,         // Include Doors in the Car array
-    Passengers,    // Include Passengers in the Car array
-    Luggage,       // Include Luggage in the Car array
-    Air_Conditioning
-  ];
-  console.log(Car)
-  const CR = [CR_id, Car_Reg_no];
-  const queryOwner = 'INSERT INTO owner (O_id, Name, Address, ph_Number, Gender) VALUES (?, ?, ?, ?, ?)';
-  const queryCar = `
-    INSERT INTO Car 
-      (Reg_no, C_name, Model, Available, Descripton, Price_Per_Day, Transmission, Mileage, Int_img, Ext_img, Reg_Year, Color, Owner_O_id, Doors, Passengers, Luggage, AC) 
-    VALUES 
-      (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-  const queryCR = 'INSERT INTO car_registration (CR_id, Car_Reg_no) VALUES (?, ?)';
-  let rollbackNeeded = false;
-
-  connection.beginTransaction((err) => {
-    if (err) throw err;
-
-    connection.query(queryOwner, owner, (err) => {
-      if (err) {
-        rollbackNeeded = true;
-        console.log("owner")
-        return connection.rollback(() => {
-          res.status(500).send("Error inserting Owner: " + err.message);
-        });
+    connection.query("SELECT * FROM Owner WHERE O_id = ? AND Password = ?", [id, password], (error, result) => {
+      if (error) {
+        console.error('Error during owner sign-in:', error);
+        return res.status(500).json({ message: 'Internal Server Error' });
       }
 
-      connection.query(queryCar, Car, (err) => {
+      if (result && result.length > 0) {
+        // Owner with the given ID and password found, handle successful login
+        console.log(result)
+        res.status(200).json({ message: result });
+      } else {
+        // No matching owner found, handle login failure
+        res.status(401).json({ message: 'Invalid credentials' });
+      }
+    });
+  } catch (error) {
+    console.error('Error during owner sign-in:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+
+app.post('/RegisterCar', upload.array('file', 2), async (req, res) => {
+  
+    // Ensure files were uploaded
+    if (!req.files || req.files.length < 2) {
+      return res.status(400).send("Please upload both interior and exterior images.");
+    }
+
+    const {
+      O_id,
+      Name,
+      Address,
+      ph_Number,
+      Gender,
+      Reg_no,
+      C_name,
+      Model,
+      Available,
+      Descripton,
+      Price_Per_Day,
+      Transmission,
+      Mileage,
+      Reg_Year,
+      Color,
+      Owner_O_id,
+      CR_id,
+      Car_Reg_no,
+      Doors,
+      Passengers,
+      Luggage,
+      Air_Conditioning,
+      password
+    } = req.body;
+
+    const owner = [O_id, Name, Address, ph_Number, Gender,password];
+    const Car = [
+      Reg_no,
+      C_name,
+      Model,
+      Available,
+      Descripton,
+      Price_Per_Day,
+      Transmission,
+      Mileage,
+      null, // Int_img path will be stored in the database
+      null, // Ext_img path will be stored in the database
+      Reg_Year,
+      Color,
+      Owner_O_id,
+      Doors,
+      Passengers,
+      Luggage,
+      Air_Conditioning,
+    ];
+
+    const CR = [Car_Reg_no];
+    const intImgPath = req.files[0].filename; // Assuming the first file is the interior image
+    const extImgPath = req.files[1].filename;
+    // Check if file paths are available
+    if (!intImgPath || !extImgPath) {
+      return res.status(500).send("Error: Interior and exterior image paths are required.");
+    }
+
+    Car[8] = intImgPath; // Set the path for the interior image
+    Car[9] = extImgPath; // Set the path for the exterior image
+
+    const queryOwner = 'INSERT INTO owner (O_id, Name, Address, ph_Number, Gender,password) VALUES (?, ?, ?, ?, ?,?)';
+    const queryCar = `
+      INSERT INTO Car 
+        (Reg_no, C_name, Model, Available, Descripton, Price_Per_Day, Transmission, Mileage, Int_img, Ext_img, Reg_Year, Color, Owner_O_id, Doors, Passengers, Luggage, AC) 
+      VALUES 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const queryCR = 'INSERT INTO car_registration (Car_Reg_no) VALUES (?)';
+    let rollbackNeeded = false;
+  
+    connection.beginTransaction((err) => {
+      if (err) throw err;
+  
+      connection.query(queryOwner, owner, (err) => {
         if (err) {
           rollbackNeeded = true;
-          console.log("Car"+err.message)
+          console.log("owner"+err.message)
           return connection.rollback(() => {
-            res.status(500).send("Error inserting Car: " + err.message);
+            res.status(500).send("Error inserting Owner: " + err.message);
           });
         }
-
-        connection.query(queryCR, CR, (err) => {
+  
+        connection.query(queryCar, Car, (err) => {
           if (err) {
             rollbackNeeded = true;
-            console.log("Cr"+err.message)
+            console.log("Car"+err.message)
             return connection.rollback(() => {
-              res.status(500).send("Error inserting CR: " + err.message);
+              res.status(500).send("Error inserting Car: " + err.message);
             });
           }
-
-          if (!rollbackNeeded) {
-            connection.commit((err) => {
-              if (err) {
-                return connection.rollback(() => {
-                  res.status(500).send("Error committing transaction: " + err.message);
-                });
-              }
-
-              res.send("Car registered successfully!");
-            });
-          }
+  
+          connection.query(queryCR, CR, (err) => {
+            if (err) {
+              rollbackNeeded = true;
+              console.log("Cr"+err.message)
+              return connection.rollback(() => {
+                res.status(500).send("Error inserting CR: " + err.message);
+              });
+            }
+  
+            if (!rollbackNeeded) {
+              connection.commit((err) => {
+                if (err) {
+                  return connection.rollback(() => {
+                    res.status(500).send("Error committing transaction: " + err.message);
+                  });
+                }
+  
+                res.send("Car registered successfully!");
+              });
+            }
+          });
         });
       });
     });
   });
-});
-
-
-
 
 //For Customer Registration
 
 
 app.post('/customer', (req, res) => {
   console.log(req.body)
-  const { Name, Address, ph_Number, Age, Zip_code, Gender } = req.body;
+  const {Cus_id, Name, Address, ph_Number, Age, Zip_code, Gender } = req.body;
 
   // Generate a UUID for Cus_id
-  const Cus_id = 'C'+uuid.v4().substring(0, 9);
 
   const values = [Cus_id, Name, Address, ph_Number, Age, Zip_code, Gender];
 
   const query = 'INSERT INTO Customer (Cus_id, Name, Address, ph_Number, Age, Zip_code, Gender) VALUES (?, ?, ?, ?, ?, ?, ?)';
-
+  
   connection.query(query, values, (error, result) => {
     if (error) {
+      console.log(error.message)
       res.status(500).send("Not inserted error: " + error.message);
     } else {
       res.send(["Customer Inserted Successfully",Cus_id]);
@@ -216,9 +256,9 @@ app.post('/customer', (req, res) => {
 
 app.post('/rental', (req, res) => {
   console.log(req.body)
-  const { Days, Commision, Total_Price, Pick_up_TD, Drop_off_TD, Customer_Cus_id, Car_Reg_no } = req.body;
-  Reg_id='R'+uuid.v4().substring(0, 10);
-  T_id='T'+uuid.v4().substring(0, 10);
+  const { Days, Commision, Total_Price, Pick_up_TD, Drop_off_TD, Customer_Cus_id, Car_Reg_no,Reg_id } = req.body;
+  
+  
   const pickUpDate = new Date(Pick_up_TD);
   const formattedPickUpDate = pickUpDate.toISOString().slice(0, 19).replace('T', ' ');
   const dropOffDate = new Date(Drop_off_TD);
@@ -233,6 +273,7 @@ app.post('/rental', (req, res) => {
 
     connection.query(`SELECT * FROM Customer WHERE Cus_id='${Customer_Cus_id}'`, (error, result2) => {
       if (error) {
+        console.log(error.message);
         return res.status(500).send("Error checking customer availability");
       }
 
@@ -242,20 +283,23 @@ app.post('/rental', (req, res) => {
 
         connection.query(insertQuery, values, (error, result) => {
           if (error) {
+            console.log(error.message);
             return res.status(500).send("Error inserting rental data");
           }
 
-          const transactionQuery = "INSERT INTO Transactions (T_id, Rental_Reg_Reg_id) VALUES (?, ?)";
-          const transactionValues = [T_id, Reg_id];
+          const transactionQuery = "INSERT INTO Transactions ( Rental_Reg_Reg_id) VALUES (?)";
+          const transactionValues = [Reg_id];
 
           connection.query(transactionQuery, transactionValues, (error, result) => {
             if (error) {
+              console.log(error.message);
               return res.status(500).send("Error inserting transaction data");
             }
 
             const updateAvailabilityQuery = `UPDATE Car SET Available = 'N' WHERE Reg_no = '${Car_Reg_no}'`;
             connection.query(updateAvailabilityQuery, (error, result) => {
               if (error) {
+                console.log(error.message);
                 return res.status(500).send("Error updating car availability");
               }
 

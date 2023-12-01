@@ -13,8 +13,8 @@ const CarForm = ({ onBack, datapass }) => {
     Price_Per_Day: '',
     Transmission: '',
     Mileage: '',
-    Int_img: '',
-    Ext_img: '',
+    Int_img: null, // Updated to store file object
+    Ext_img: null, // Updated to store file object
     Reg_Year: '',
     Color: '',
     Doors: '',
@@ -23,22 +23,29 @@ const CarForm = ({ onBack, datapass }) => {
   });
 
   const handleChange = (e) => {
-    setCarData({
-      ...carData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.type === 'file') {
+      // Handle file input separately
+      setCarData({
+        ...carData,
+        [e.target.name]: e.target.files[0], // Assuming only one file is selected
+      });
+    } else {
+      // Handle other input fields
+      setCarData({
+        ...carData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     datapass(carData);
   };
-
   return (
     <div className="form-container">
       <h2>Car Information</h2>
       <form onSubmit={handleSubmit}>
-        {/* Existing fields */}
         <label>
           Reg_no:
           <input type="text" name="Reg_no" value={carData.Reg_no} onChange={handleChange} />
@@ -68,12 +75,13 @@ const CarForm = ({ onBack, datapass }) => {
           <input type="text" name="Mileage" value={carData.Mileage} onChange={handleChange} />
         </label>
         <label>
-          Int_img:
-          <input type="text" name="Int_img" value={carData.Int_img} onChange={handleChange} />
+          Interior Image:
+          <input type="file" name="Int_img" onChange={handleChange} accept="image/*" />
         </label>
+
         <label>
-          Ext_img:
-          <input type="text" name="Ext_img" value={carData.Ext_img} onChange={handleChange} />
+          Exterior Image:
+          <input type="file" name="Ext_img" onChange={handleChange} accept="image/*" />
         </label>
         <label>
           Reg_Year:

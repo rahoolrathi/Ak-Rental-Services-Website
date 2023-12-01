@@ -2,6 +2,7 @@ import React from "react";
 import Civic from '../../Assets/Civic.png';
 import "./BookingCarInfo.css"; // Create a CSS file for styling
 
+
 const Booking_Car_info = (props) => {
   console.log(props.selectedTime)
   return (
@@ -17,7 +18,7 @@ const Booking_Car_info = (props) => {
         </div>
 
         <div className="car-image">
-          <img src={Civic} alt="Civic" />
+          <img src={require(`../../Assets/${props.Int_img}`)} alt="Car_img" />
         </div>
       </div>
     </div>

@@ -3,6 +3,22 @@ import './PersonalInfoForm.css'; // Import the CSS file
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
 const PersonalInfoForm = (props) => {
+  const generateId = () => {
+    let counter = 1;
+  
+    // Read counter value from localStorage
+    const counterString = localStorage.getItem('counter');
+    counter = parseInt(counterString) || 1;
+  
+    // Increment the counter
+    const newCounter = counter + 1;
+  
+    // Write the updated counter back to localStorage
+    localStorage.setItem('counter', newCounter.toString());
+  
+    // Return the generated owner ID
+    return newCounter;
+  };
     const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
@@ -18,6 +34,8 @@ const PersonalInfoForm = (props) => {
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const Cus_id=generateId();
+    const Reg_id=generateId();
   
     try {
       // Calculate the number of days between pickup and drop-off
@@ -28,6 +46,7 @@ const PersonalInfoForm = (props) => {
   
       // First POST request to /customer
       const customerResponse = await axios.post('http://localhost:3001/customer', {
+        Cus_id:Cus_id,
         Name: `${formData.firstName} ${formData.lastName}`,
         Address: formData.address,
         ph_Number: formData.phoneNumber,
@@ -48,8 +67,9 @@ const PersonalInfoForm = (props) => {
           Total_Price: props.Price_per_Day * daysDifference,
           Pick_up_TD: props.pickupDate,
           Drop_off_TD: props.dropoffDate,
-          Customer_Cus_id: customerResponse.data[1],
-          Car_Reg_no: props.regno
+          Customer_Cus_id: Cus_id,
+          Car_Reg_no: props.regno,
+          Reg_id:Reg_id
         });
   
         if(secondResponse.data=== "Rental, Transactions, and availability updated successfully")

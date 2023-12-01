@@ -8,6 +8,7 @@ import User_RegisteredCars from "./Components/pages/Search_Car/User_RegisteredCa
 import CarRegistration from "./Components/pages/Registration/CarRegistration"; 
 import Navbar from "./Components/UI/Navbar";
 import BookingPage from "./Components/pages/Car_Booking/Booking_Page";
+import SignInSide from "./Components/pages/owner_SignIn/SignInSide";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/rent' element={<User_RegisteredCars/>} />
         <Route path='/Bookingpage' element={<BookingPage/>}/>
         <Route path="/Register" element={<CarRegistration />} />
+        <Route path="/SignIn" element={<SignInSide />} />
       </Routes>
     </Router>
   );
