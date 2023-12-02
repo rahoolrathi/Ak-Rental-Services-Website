@@ -20,6 +20,7 @@ const Car_Card = (props) => {
     Price_Per_Day,
     Description,
     Color,
+    img,
     ImageSrc, // Add a new prop for the image source
   } = props;
   const NavigatetoBooking = (Driver) => {
@@ -27,7 +28,9 @@ const Car_Card = (props) => {
     {
       Price_Per_Day=Price_Per_Day+500;
     }
-    const newData = { Reg_no, C_name, Price_Per_Day };
+  
+    const newData = { Reg_no, C_name, Price_Per_Day,img};
+
     navigate('/Bookingpage', { state: newData });
   };
   

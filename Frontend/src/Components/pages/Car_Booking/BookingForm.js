@@ -31,6 +31,7 @@ const Booking_Form = (props) => {
       pickupDate,
       pickupTime,
       dropoffDate,
+   
     });
   };
 
@@ -113,7 +114,7 @@ const Booking_Form = (props) => {
             pickupDate={pickupDate}
             pickupTime={pickupTime}
             dropoffDate={dropoffDate}
-            Int_img={props.Int_img}
+            ImageSrc={props.ImageSrc}
           />
           <br></br>
           <PersonalInfoForm

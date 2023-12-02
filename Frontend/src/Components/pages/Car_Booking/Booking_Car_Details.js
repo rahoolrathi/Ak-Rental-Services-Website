@@ -18,7 +18,7 @@ const Booking_Car_info = (props) => {
         </div>
 
         <div className="car-image">
-          <img src={require(`../../Assets/${props.Int_img}`)} alt="Car_img" />
+          <img src={require(`../../Assets/${props.ImageSrc}`)} alt="Car_img" />
         </div>
       </div>
     </div>

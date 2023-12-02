@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import _default from '@mui/material/styles/identifier';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -32,6 +33,8 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+const navigate=useNavigate();
+
   const handleSubmit = async (event) => {
    try {
       event.preventDefault();
@@ -41,11 +44,13 @@ export default function SignInSide() {
         id: id.value,
         password: password.value
       });
+      const Uid=id.value;
 
       // Check if the response status is OK (200)
       if (signin.status === 200) {
         // Assuming the owner data is available in the response.data.message
         console.log("Owner Data: ", signin.data.message);
+        navigate('/AdminDashboard',{state:Uid})
       } else {
         console.log("Login unsuccessful");
       }

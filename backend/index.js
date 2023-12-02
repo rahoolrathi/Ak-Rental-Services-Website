@@ -40,6 +40,24 @@ app.use(express.json());
 
 
 
+app.get('/getOwnerData/:ownerId', async (req, res) => {
+  console.log("like " + req.params.ownerId);
+  try {
+    const ownerId = req.params.ownerId;
+
+    // Call the GetOwnerCars procedure
+    const [cars] = await connection.promise().query('CALL GetOwnerCars(?)', [ownerId]);
+
+    // Call the GetOwnerRentalRegistrations procedure
+    const [rentalRegistrations] = await connection.promise().query('CALL GetOwnerRentalRegistrations(?)', [ownerId]);
+
+    // Send the result as JSON
+    res.json({ cars: cars[0], rentalRegistrations: rentalRegistrations[0] });
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 //Showing Data
 
@@ -225,6 +243,111 @@ app.post('/RegisterCar', upload.array('file', 2), async (req, res) => {
       });
     });
   });
+
+  app.post('/RegisterCarSec', upload.array('file', 2), async (req, res) => {
+  
+    // Ensure files were uploaded
+    if (!req.files || req.files.length < 2) {
+      return res.status(400).send("Please upload both interior and exterior images.");
+    }
+
+    const {
+      Reg_no,
+      C_name,
+      Model,
+      Available,
+      Descripton,
+      Price_Per_Day,
+      Transmission,
+      Mileage,
+      Reg_Year,
+      Color,
+      Owner_O_id,
+      CR_id,
+      Car_Reg_no,
+      Doors,
+      Passengers,
+      Luggage,
+      Air_Conditioning,
+      password
+    } = req.body;
+    const Car = [
+      Reg_no,
+      C_name,
+      Model,
+      Available,
+      Descripton,
+      Price_Per_Day,
+      Transmission,
+      Mileage,
+      null, // Int_img path will be stored in the database
+      null, // Ext_img path will be stored in the database
+      Reg_Year,
+      Color,
+      Owner_O_id,
+      Doors,
+      Passengers,
+      Luggage,
+      Air_Conditioning,
+    ];
+
+    const CR = [Car_Reg_no];
+    const intImgPath = req.files[0].filename; // Assuming the first file is the interior image
+    const extImgPath = req.files[1].filename;
+    // Check if file paths are available
+    if (!intImgPath || !extImgPath) {
+      return res.status(500).send("Error: Interior and exterior image paths are required.");
+    }
+
+    Car[8] = intImgPath; // Set the path for the interior image
+    Car[9] = extImgPath; // Set the path for the exterior image
+
+    
+    const queryCar = `
+      INSERT INTO Car 
+        (Reg_no, C_name, Model, Available, Descripton, Price_Per_Day, Transmission, Mileage, Int_img, Ext_img, Reg_Year, Color, Owner_O_id, Doors, Passengers, Luggage, AC) 
+      VALUES 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const queryCR = 'INSERT INTO car_registration (Car_Reg_no) VALUES (?)';
+    let rollbackNeeded = false;
+  
+    connection.beginTransaction((err) => {
+      if (err) throw err;
+  
+        connection.query(queryCar, Car, (err) => {
+          if (err) {
+            rollbackNeeded = true;
+            console.log("Car"+err.message)
+            return connection.rollback(() => {
+              res.status(500).send("Error inserting Car: " + err.message);
+            });
+          }
+  
+          connection.query(queryCR, CR, (err) => {
+            if (err) {
+              rollbackNeeded = true;
+              console.log("Cr"+err.message)
+              return connection.rollback(() => {
+                res.status(500).send("Error inserting CR: " + err.message);
+              });
+            }
+  
+            if (!rollbackNeeded) {
+              connection.commit((err) => {
+                if (err) {
+                  return connection.rollback(() => {
+                    res.status(500).send("Error committing transaction: " + err.message);
+                  });
+                }
+  
+                res.send("Car registered successfully!");
+              });
+            }
+          });
+        });
+      });
+    });
+  
 
 //For Customer Registration
 

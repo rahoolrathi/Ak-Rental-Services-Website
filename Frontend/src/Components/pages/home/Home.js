@@ -10,16 +10,19 @@ import BookingPage from '../Car_Booking/Booking_Page'
 import CarRegistrationForm from "../Registration/CarRegistration";
 import SignInSide from "../owner_SignIn/SignInSide";
 import Basic from "../Car_Booking/orderSummary";
+import AdminDashboard from "../owner_SignIn/AdminDashboard";
+
 const Home = () => {
 
   return (
     <>
     {/* <CarRegistrationForm></CarRegistrationForm> */}
-  <ShowCars />
+  {/* <ShowCars />
    
-   <HomeInfo/>  
+   <HomeInfo/>   */}
    {/* <Basic/> */}
 
+<AdminDashboard/>
 
     
 

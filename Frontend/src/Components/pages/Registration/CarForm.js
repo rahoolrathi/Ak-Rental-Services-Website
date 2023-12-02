@@ -1,7 +1,6 @@
 // CarForm.js
 
 import React, { useState } from 'react';
-import './CarForm.css';
 
 const CarForm = ({ onBack, datapass }) => {
   const [carData, setCarData] = useState({

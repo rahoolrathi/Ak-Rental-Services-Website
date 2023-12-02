@@ -46,6 +46,7 @@ const User_RegisteredCars = () => {
                   Price_Per_Day={car.Price_Per_Day}
                   Description={car.Descripton}
                   Color={car.Color}
+                  img={car.Int_img}
                   ImageSrc={require(`../../Assets/${car.Int_img}`)}
                 />
               </Grid>
