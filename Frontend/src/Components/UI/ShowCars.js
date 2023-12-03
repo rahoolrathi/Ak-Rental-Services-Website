@@ -38,7 +38,8 @@ const Showcar = () => {
   }, []);
 
   const NavigatetoBooking = (Reg_no, C_name, Price_Per_Day,Int_img) => {
-    const newData = { Reg_no, C_name, Price_Per_Day,Int_img };
+    const img=Int_img;
+    const newData = { Reg_no, C_name, Price_Per_Day,img };
     setFormData(newData);
     navigate('/Bookingpage', { state: newData });
   };

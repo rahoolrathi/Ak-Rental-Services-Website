@@ -17,12 +17,12 @@ const Home = () => {
   return (
     <>
     {/* <CarRegistrationForm></CarRegistrationForm> */}
-  {/* <ShowCars />
+  <ShowCars />
    
-   <HomeInfo/>   */}
-   {/* <Basic/> */}
+   <HomeInfo/>   
+  
 
-<AdminDashboard/>
+{/* <AdminDashboard/> */}
 
     
 

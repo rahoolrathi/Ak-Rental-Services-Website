@@ -28,11 +28,12 @@ const Car_Card = (props) => {
     {
       Price_Per_Day=Price_Per_Day+500;
     }
-  
+        
     const newData = { Reg_no, C_name, Price_Per_Day,img};
 
     navigate('/Bookingpage', { state: newData });
   };
+  console.log(img)
   
   return (
     <div className="car-card">
