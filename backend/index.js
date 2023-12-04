@@ -58,6 +58,40 @@ app.get('/getOwnerData/:ownerId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+//ak cars
+app.get('/ak', (req, res) => {
+  // Update Car availability for cars with drop_off_TD in the past
+  const updateQuery = `
+    UPDATE Car C
+    JOIN Rental_Reg R ON C.reg_no = R.car_reg_no
+    SET C.available = 'Y'
+    WHERE R.car_reg_no = C.reg_no
+      AND R.drop_off_TD <= CURRENT_TIMESTAMP
+      AND R.drop_off_TD = (
+        SELECT MAX(drop_off_TD)
+        FROM Rental_Reg
+        WHERE car_reg_no = C.reg_no
+      )
+  `;
+  connection.query(updateQuery, (err) => {
+    if (err) {
+      console.error('Error updating Car availability:', err);
+      return res.status(500).send('Error updating Car availability');
+    }
+
+    // Select available cars
+    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=52';
+
+    connection.query(selectQuery, (error, results) => {
+      if (error) {
+        console.error('Error selecting available cars:', error);
+        return res.status(500).send('Error selecting available cars');
+      }
+
+      res.json(results);
+    });
+  });
+});
 
 //Showing Data
 
@@ -93,6 +127,22 @@ app.get('/', (req, res) => {
       res.json(results);
     });
   });
+});
+
+app.post('/getUserDataByRegNo', async (req, res) => {
+  try {
+    const { Reg_no } = req.body;
+
+    // Call the GetCustomerInfoByRentalRegNo procedure
+    const [userData] = await connection.promise().query('CALL GetCustomerInfoByRentalRegNo(?)', [Reg_no]);
+
+    // Send the result as JSON
+    console.log(userData)
+    res.json({ userData: userData[0] });
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 
@@ -234,7 +284,7 @@ app.post('/RegisterCar', upload.array('file', 2), async (req, res) => {
                     res.status(500).send("Error committing transaction: " + err.message);
                   });
                 }
-  
+                res.status=200;
                 res.send("Car registered successfully!");
               });
             }

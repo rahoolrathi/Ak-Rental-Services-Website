@@ -2,18 +2,30 @@ import React, { useState } from 'react';
 import OwnerForm from './OwnerForm';
 import CarForm from './CarForm';
 import './CarRegistration.css';
+import Modal from '../../UI/Model';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const CarRegistration = () => {
+  const [Mdata,Msetdata]=useState([])
+  const [showid,setshowid]=useState(false);
   const navigate=useNavigate();
   const [showCarForm, setShowCarForm] = useState(false);
   const [Odata, setOdata] = useState(null);
   const [CarData, setCarData] = useState(null);
   const [registrationCounter, setRegistrationCounter] = useState(1);
 
+const handleclose=()=>
+{
 
+setshowid(false);
+if(Mdata[0]!="Error")
+{
+  navigate('/');
+}
+
+}
   const generateOwnerId = () => {
-    let counter = 1;
+    let counter = 100;
   
     // Read counter value from localStorage
     const counterString = localStorage.getItem('counter');
@@ -72,10 +84,19 @@ const CarRegistration = () => {
       formData.append('Luggage', carData.Luggage);
   
       const carRegistrationResponse = await axios.post('http://localhost:3001/RegisterCar', formData);
-  
+      console.log("status"+carRegistrationResponse.status)
+        if(carRegistrationResponse.status===200){
       console.log('Car Registration Response:', carRegistrationResponse.data);
-      navigate('/');
+      Msetdata(["SuccessFull",`Your ID is ${O_id}`])
+      setshowid(true);
+        }
+        else{
+          Msetdata(["Error",`Invalid Crediantails`]);
+          setshowid(true);
+        }
     } catch (error) {
+      Msetdata(["Error",`Invalid Crediantails`]);
+          setshowid(true);
       console.error('Error:', error.message);
     } finally {
       setRegistrationCounter((prevCounter) => prevCounter + 1);
@@ -95,6 +116,9 @@ const CarRegistration = () => {
       ) : (
         <CarForm onBack={handleCarFormBack} datapass={handleCarData} />
       )}
+      <div>
+        {showid && <Modal Title={Mdata[0]} message={Mdata[1]} handleclose={handleclose} />}
+      </div>
     </div>
   );
 };

@@ -12,14 +12,16 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import _default from '@mui/material/styles/identifier';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../../UI/Model';
+import { useState } from 'react';
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://pk.linkedin.com/in/kantesh-kumar-3b123b249">
         Ak Rental Sevices
       </Link>{' '}
       {new Date().getFullYear()}
@@ -28,15 +30,14 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
-const navigate=useNavigate();
+  const navigate=useNavigate();
+  const [show,setshow] = useState(false);
 
   const handleSubmit = async (event) => {
-   try {
+    try {
       event.preventDefault();
 
       const { id, password } = event.currentTarget;
@@ -52,13 +53,18 @@ const navigate=useNavigate();
         console.log("Owner Data: ", signin.data.message);
         navigate('/AdminDashboard',{state:Uid})
       } else {
+        setshow(true);
         console.log("Login unsuccessful");
       }
     } catch (error) {
+      setshow(true);
       console.error('Error:', error.message);
     }
   };
-
+const handleclose=()=>
+{
+  setshow(false);
+}
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -87,6 +93,7 @@ const navigate=useNavigate();
               alignItems: 'center',
             }}
           >
+           { show && <Modal Title="Error" message="Invalid Credentails" handleclose={handleclose} />}
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
@@ -123,7 +130,6 @@ const navigate=useNavigate();
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                
               >
                 Sign In
               </Button>

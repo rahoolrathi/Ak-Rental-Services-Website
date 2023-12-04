@@ -46,6 +46,8 @@ font-weight: bold;
     flex-wrap: wrap;
   }
   
+
+  
   .stylish-car-section h2 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -116,5 +118,9 @@ font-weight: bold;
   .recommend__car-card span {
     font-size: 1.2rem;
     color: #fff; /* Added text color for the span */
+
+  }
+  .card{
+    margin-bottom: 30px;
   }
   

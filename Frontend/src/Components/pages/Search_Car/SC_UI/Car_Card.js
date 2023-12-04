@@ -43,36 +43,38 @@ const Car_Card = (props) => {
         </div>
         <h2 className="model-name">{C_name}</h2>
         <div className='details-container'>
-          <div className="detail">
-            <img src={fullday} alt="fullday" /><span>With Driver (10hrs/day)
-Self Drive (24hrs)</span>
-          </div>
-          <div className="detail">
-            <img src={time} alt="time" /><span>Overtime: PKR 350/hr</span>
-          </div>
-          <div className="detail_R">
-            <img src={Seat} alt="Seat" /><span>{`${Seats} Seats`}</span>
-          </div>
-          <div className="detail_R">
-            <img src={gear} alt="Gear" /><span>{Transmission}</span>
-          </div>
+        <div className="detail">
+  <img className="icon" src={fullday} alt="fullday" />
+  <span>With Driver (10hrs/day) Self Drive (24hrs)</span>
+</div>
+<div className="detail">
+  <img className="icon" src={time} alt="time" />
+  <span>Overtime: PKR 350/hr</span>
+</div>
+<div className="detail_R">
+  <img className="icon" src={Seat} alt="Seat" />
+  <span>{`${Seats} Seats`}</span>
+</div>
+<div className="detail_R">
+  <img className="icon" src={gear} alt="Gear" />
+  <span>{Transmission}</span>
+</div>
+
         </div>
       </div>
 
       <div className="price-section">
         <div className="price-detail">
-          <h2>{`${Price_Per_Day}/day`}</h2>
+          <h2>{`${Price_Per_Day+500}/day`}</h2>
           <button onClick={() => NavigatetoBooking(true)}>With Driver</button>
         </div>
         <div className="price-detail">
-          <h2>{`${Price_Per_Day - 500}/day`}</h2>
+          <h2>{`${Price_Per_Day }/day`}</h2>
           <button onClick={() => NavigatetoBooking(false)}>Without Driver</button>
         </div>
       </div>
 
-      <div className="view-details">
-        View Details
-      </div>
+     
     </div>
   );
 };

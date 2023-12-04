@@ -16,7 +16,21 @@ body {
     font-size: 2.5rem;
     color: silver;
     text-align: center;
+    font-weight: bold;
+    background-color: #333; /* Add a background color */
+    padding: 10px 0; /* Add padding for better spacing */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    margin-bottom: 20px; /* Add margin at the bottom for separation */
+    text-transform: uppercase; /* Convert text to uppercase */
   }
+  
+  /* You can also add hover effect for interaction */
+  .section-heading:hover {
+    background-color: #555; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
   
   .section-subheading {
     font-size: 1.5rem;

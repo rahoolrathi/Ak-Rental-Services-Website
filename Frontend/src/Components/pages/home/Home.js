@@ -18,7 +18,7 @@ const Home = () => {
     <>
     {/* <CarRegistrationForm></CarRegistrationForm> */}
   <ShowCars />
-   
+   <br/>
    <HomeInfo/>   
   
 

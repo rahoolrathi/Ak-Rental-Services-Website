@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import './SC_UI/User_RegisteredCars.css';
+import { blue } from "@mui/material/colors";
 
 const User_RegisteredCars = () => {
   const [carData, Set_Data] = useState([]);
@@ -28,7 +29,7 @@ const User_RegisteredCars = () => {
   return (
     <div>
       <Box sx={{ textAlign: 'center', padding: '20px' }}>
-        <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '20px', animation: 'fadeIn 2s ease-in-out' }}>
+        <Typography variant="h2" sx={{background:'grey',color:"black" ,fontWeight: 'bold', marginBottom: '20px', animation: 'fadeIn 2s ease-in-out' }}>
           User Registered Cars for Rent
         </Typography>
       </Box>

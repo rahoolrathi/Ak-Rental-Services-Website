@@ -1,19 +1,26 @@
 .car-card {
     width: 500px;
+    height:600px ;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
+    margin-left: 90px;
+    margin-bottom: 50px;
+    
   }
-  
+  .icon {
+    width: 20px; /* You can adjust this value as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
   .car-info {
     margin-bottom: 20px;
   }
   
   .car-image img {
     width: 120px;
-    height: auto;
+    height: 200px;
     display: block;
     margin: 0 auto;
   }
@@ -21,6 +28,7 @@
   .model-name {
     font-size: 1.5rem;
     margin: 10px 0;
+    font-weight: bold;
   }
   
   .pricing {
@@ -31,6 +39,7 @@
   
   .price-detail {
     text-align: left;
+    margin-top: 10px;
   }
   
   .price-detail h2 {
@@ -58,6 +67,7 @@
     font-size: 1rem;
     color: #555;
     margin-bottom: 10px;
+
   }
   .Size_{
 size: 20px;

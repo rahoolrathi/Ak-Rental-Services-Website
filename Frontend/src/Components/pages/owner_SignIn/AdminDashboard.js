@@ -20,7 +20,7 @@ const [show,setshow]=useState(false);
       try {
         const response = await axios.get(`http://localhost:3001/getOwnerData/${ownerId}`);
         setOwnerData(response.data);
-        console.log(ownerData)
+  
 
       } catch (error) {
         console.error('Error fetching owner data:', error.message);
@@ -29,7 +29,7 @@ const [show,setshow]=useState(false);
   
     fetchData();
   }, [ownerId]);
-  console.log(ownerData)
+  
 // ...
 const handleCarFormBack=(down)=>
 {
