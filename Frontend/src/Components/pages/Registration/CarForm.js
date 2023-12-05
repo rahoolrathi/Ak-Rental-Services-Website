@@ -66,7 +66,7 @@ const CarForm = ({ onBack, datapass }) => {
           <input type="text" name="Price_Per_Day" value={carData.Price_Per_Day} onChange={handleChange} />
         </label>
         <label>
-          Transmission:
+          Transmission :
           <input type="text" name="Transmission" value={carData.Transmission} onChange={handleChange} />
         </label>
         <label>
@@ -101,7 +101,7 @@ const CarForm = ({ onBack, datapass }) => {
           <input type="text" name="Passengers" value={carData.Passengers} onChange={handleChange} />
         </label>
         <label>
-          Luggage:
+          Luggage *(No of Small Bags) :
           <input type="text" name="Luggage" value={carData.Luggage} onChange={handleChange} />
         </label>
         <label>

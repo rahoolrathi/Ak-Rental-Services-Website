@@ -58,22 +58,15 @@ app.get('/getOwnerData/:ownerId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+
 //ak cars
+
+
 app.get('/ak', (req, res) => {
   // Update Car availability for cars with drop_off_TD in the past
-  const updateQuery = `
-    UPDATE Car C
-    JOIN Rental_Reg R ON C.reg_no = R.car_reg_no
-    SET C.available = 'Y'
-    WHERE R.car_reg_no = C.reg_no
-      AND R.drop_off_TD <= CURRENT_TIMESTAMP
-      AND R.drop_off_TD = (
-        SELECT MAX(drop_off_TD)
-        FROM Rental_Reg
-        WHERE car_reg_no = C.reg_no
-      )
-  `;
-  connection.query(updateQuery, (err) => {
+  const updateProcedure = 'CALL UpdateCarAvailability()';
+  connection.query(updateProcedure, (err) => {
     if (err) {
       console.error('Error updating Car availability:', err);
       return res.status(500).send('Error updating Car availability');
@@ -97,19 +90,8 @@ app.get('/ak', (req, res) => {
 
 app.get('/', (req, res) => {
   // Update Car availability for cars with drop_off_TD in the past
-  const updateQuery = `
-    UPDATE Car C
-    JOIN Rental_Reg R ON C.reg_no = R.car_reg_no
-    SET C.available = 'Y'
-    WHERE R.car_reg_no = C.reg_no
-      AND R.drop_off_TD <= CURRENT_TIMESTAMP
-      AND R.drop_off_TD = (
-        SELECT MAX(drop_off_TD)
-        FROM Rental_Reg
-        WHERE car_reg_no = C.reg_no
-      )
-  `;
-  connection.query(updateQuery, (err) => {
+  const updateProcedure = 'CALL UpdateCarAvailability()';
+  connection.query(updateProcedure, (err) => {
     if (err) {
       console.error('Error updating Car availability:', err);
       return res.status(500).send('Error updating Car availability');

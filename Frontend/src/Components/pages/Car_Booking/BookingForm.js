@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./BookingForm.css";
 import PersonalInfoForm from "./Personal_info";
 import Booking_Car_info from "./Booking_Car_Details";
+import Modal from "../../UI/Model";
 
 const Booking_Form = (props) => {
   const [selectedCar, setSelectedCar] = useState(props.C_name);
@@ -9,6 +10,8 @@ const Booking_Form = (props) => {
   const [pickupTime, setPickupTime] = useState('');
   const [dropoffDate, setDropoffDate] = useState('');
   const [show, setShow] = useState(false);
+  const [showM, setShowM] = useState(false);
+  
 
   const handlePickupDateChange = (event) => {
     setPickupDate(event.target.value);
@@ -24,19 +27,42 @@ const Booking_Form = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Do something with the selected data (selectedCar, pickupDate, pickupTime, dropoffDate)
-    // For now, logging to the console:
+  
+    // Check if any of the required fields are null
+    if (!selectedCar || !pickupDate || !pickupTime || !dropoffDate) {
+      // One or more fields are null, set showM to true
+      setShowM(true);
+      // You can display an error message or prevent the form submission here
+      return;
+    }
+  
+    // Check if drop-off date is greater than pick-up date
+    const pickupDateTime = new Date(`${pickupDate}T${pickupTime}`);
+    const dropoffDateTime = new Date(`${dropoffDate}T00:00:00`);
+  
+    if (dropoffDateTime <= pickupDateTime) {
+      // Drop-off date is not greater than pick-up date
+      setShowM(true);
+      // You can display an error message or prevent the form submission here
+      return;
+    }
+  
+    // Continue with form submission or any other actions
     console.log('Booking Details:', {
       selectedCar,
       pickupDate,
       pickupTime,
       dropoffDate,
-   
     });
+    setShow(true);
   };
-
+  
+  const handleclose=()=>{
+setShowM(false);
+  }
   return (
     <>
+    { showM && <Modal Title="Invalid Details" message="Invalid Details" handleclose={handleclose} />}
       <form className="booking-form" onSubmit={handleSubmit}>
         <div className="form-title">
           <h2>BOOK A CAR TODAY</h2>
@@ -96,9 +122,7 @@ const Booking_Form = (props) => {
 
         <button
           type="submit"
-          onClick={() => {
-            setShow(true);
-          }}
+
         >
           Continue Booking
         </button>
