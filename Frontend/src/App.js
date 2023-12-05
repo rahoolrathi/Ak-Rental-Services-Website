@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
         <Navbar />
-        <br/>      <Routes>
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/rent' element={<User_RegisteredCars/>} />
         <Route path='/Bookingpage' element={<BookingPage/>}/>

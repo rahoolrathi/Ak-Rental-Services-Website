@@ -7,7 +7,7 @@ const BookingPage = () => {
 
   // Check if location.state is not null before accessing its properties
   const { Reg_no, C_name, Price_Per_Day,img } = location.state || {};
-console.log("img"+img);
+
   return (
     <Booking_Form
       // Pass the state properties as props to Booking_Form component

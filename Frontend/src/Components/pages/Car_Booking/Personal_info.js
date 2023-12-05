@@ -164,17 +164,7 @@ const PersonalInfoForm = (props) => {
           />
         </div>
         <div className="input-group">
-          <div className="input-half">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              className="form-input"
-              required
-              value={formData.city}
-              onChange={handleChange}
-            />
-          </div>
+  
           <div className="input-half">
             <label htmlFor="country">Country</label>
             <input

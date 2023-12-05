@@ -1,5 +1,5 @@
 .car-card {
-    width: 500px;
+    width: 600px;
     height:600px ;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -19,7 +19,7 @@
   }
   
   .car-image img {
-    width: 120px;
+    width: 150px;
     height: 200px;
     display: block;
     margin: 0 auto;

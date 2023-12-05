@@ -88,6 +88,10 @@ const handleCarData = async (carData) => {
     const carRegistrationResponse = await axios.post('http://localhost:3001/RegisterCarSec', formData);
 
     console.log('Car Registration Response:', carRegistrationResponse.data);
+    if(carRegistrationResponse.status===200)
+    {
+      handleCarFormBack();
+    }
   } catch (error) {
     console.error('Error:', error.message);
   } 
