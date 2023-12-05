@@ -76,7 +76,7 @@ if(data[0]!="Error")
         console.log("Car"+props.regno);
         const secondResponse = await axios.post('http://localhost:3001/rental', {
           Days: daysDifference,
-          Commision: 10,
+          Commision: (0.1 *(props.Price_per_Day * daysDifference)),
           Total_Price: props.Price_per_Day * daysDifference,
           Pick_up_TD: props.pickupDate,
           Drop_off_TD: props.dropoffDate,
@@ -87,7 +87,7 @@ if(data[0]!="Error")
   
         if(secondResponse.data=== "Rental, Transactions, and availability updated successfully")
         {
-            setdata(["Registration Successfull","We will Contact you with in few hours"]);
+            setdata(["Registration Successfull",`Total Bill is ${(props.Price_per_Day * daysDifference)+(0.1 *(props.Price_per_Day * daysDifference))} with 10% AK Servce Tax. \n We will Contact you with in few hours`]);
             setshowM(true);
            
         }

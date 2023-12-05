@@ -52,7 +52,9 @@ const Navbar = () => {
           <Link to='/service' style={listItemStyle} onClick={handleLinkClick}>Service</Link>
         </li>
     
-        <li style={listItemStyle}>Contact us</li>
+        <li style={{ ...listItemStyle, ...(location.pathname === '/Aboutus' && selectedStyle) }}>
+          <Link to='/Aboutus' style={listItemStyle} onClick={handleLinkClick}>About us</Link>
+        </li>
       </ul>
     </nav>
   );

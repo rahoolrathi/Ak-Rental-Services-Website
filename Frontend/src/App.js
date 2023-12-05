@@ -10,6 +10,7 @@ import Navbar from "./Components/UI/Navbar";
 import BookingPage from "./Components/pages/Car_Booking/Booking_Page";
 import SignInSide from "./Components/pages/owner_SignIn/SignInSide";
 import AdminDashboard from "./Components/pages/owner_SignIn/AdminDashboard";
+import Aboutus from "./Components/pages/AboutUs/Aboutus";
 function App() {
   return (
     <Router>
@@ -20,7 +21,8 @@ function App() {
         <Route path='/Bookingpage' element={<BookingPage/>}/>
         <Route path="/Register" element={<CarRegistration />} />
         <Route path="/SignIn" element={<SignInSide />} />
-        <Route path="/AdminDashboard" element={<AdminDashboard/>} />  
+        <Route path="/AdminDashboard" element={<AdminDashboard/>} /> 
+        <Route path="/Aboutus" element={<Aboutus/>} />  
       </Routes>
     </Router>
   );
