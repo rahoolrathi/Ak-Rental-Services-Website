@@ -2,7 +2,20 @@ import React, { useState } from 'react';
 import './PersonalInfoForm.css'; // Import the CSS file
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Modal from '../../UI/Model';
 const PersonalInfoForm = (props) => {
+  const [showM,setshowM]=useState(false);
+  const [data,setdata]=useState();
+  const handleclose=()=>
+{
+
+setshowM(false);
+if(data[0]!="Error")
+{
+  navigate('/');
+}
+
+}
   const generateId = () => {
     let counter = 1;
   
@@ -74,11 +87,23 @@ const PersonalInfoForm = (props) => {
   
         if(secondResponse.data=== "Rental, Transactions, and availability updated successfully")
         {
-            navigate('/');
+            setdata(["Registration Successfull","We will Contact you with in few hours"]);
+            setshowM(true);
+           
         }
+        else{
+          setdata(["Error","invalid Credentials"]);
+            setshowM(true);
+        }
+      }
+      else{
+        setdata(["Error","invalid Credentials"]);
+        setshowM(true);
       }
     } catch (error) {
       console.error('Error:', error.message);
+      setdata(["Error","invalid Credentials"]);
+      setshowM(true);
     }
   };
   
@@ -217,6 +242,7 @@ const PersonalInfoForm = (props) => {
           Book Now
         </button>
       </form>
+      {showM && <Modal Title={data[0]} message={data[1]} handleclose={handleclose} />}
     </div>
   );
 };
