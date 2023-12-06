@@ -379,8 +379,20 @@ app.post('/RegisterCar', upload.array('file', 2), async (req, res) => {
         });
       });
     });
+  //to delete car
+  app.delete('/api/deleteCar/:regId', async (req, res) => {
+    const regId = req.params.regId;
   
-
+    try {
+      // Call the stored procedure
+      await connection.promise().execute('CALL DeleteCarData(?)', [regId]);
+  
+      res.status(200).send("Successfully Deleted");
+    } catch (error) {
+      console.error('Error deleting data:', error);
+      res.status(500).send("Error");
+    }
+  });
 //For Customer Registration
 
 
