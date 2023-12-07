@@ -91,6 +91,7 @@ const handleCarData = async (carData) => {
     if(carRegistrationResponse.status===200)
     {
       handleCarFormBack();
+      window.location.reload();
     }
   } catch (error) {
     console.error('Error:', error.message);
@@ -115,7 +116,7 @@ return (
         {/* Add more AdminCar components as needed */}
       </div>
       <br />
-      <Button onClick={()=>handleCarFormBack(1)} size="large" variant="contained" style={{ marginLeft: '0' }} disableElevation>
+      <Button onClick={()=>handleCarFormBack(1)} size="large"  variant="contained" style={{ marginLeft: '0', width:"100%" }} disableElevation>
       Register Another Car
     </Button>
       <div>

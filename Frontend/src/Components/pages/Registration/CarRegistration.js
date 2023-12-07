@@ -25,7 +25,7 @@ if(Mdata[0]!="Error")
 
 }
   const generateOwnerId = () => {
-    let counter = 100;
+    let counter = 1000;
   
     // Read counter value from localStorage
     const counterString = localStorage.getItem('counter');

@@ -17,7 +17,7 @@ if(data[0]!="Error")
 
 }
   const generateId = () => {
-    let counter = 1;
+    let counter = 1000;
   
     // Read counter value from localStorage
     const counterString = localStorage.getItem('counter');

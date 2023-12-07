@@ -39,7 +39,7 @@ export default function Feedback() {
 										text-sm rounded-lg focus:border-blue-500 
 										w-full p-2.5"
 							type="email"
-							placeholder="abc@geeksforgeeks.org"/> 
+							placeholder="abc@Ak_Rental.org"/> 
 					<br></br> 
 					<label className="text-sm">Contact No.</label> 
 					<br></br> 

@@ -39,7 +39,12 @@ const Car_Card = (props) => {
     <div className="car-card">
       <div className="car-info">
         <div className="car-image">
-          <img src={ImageSrc} alt={C_name} style={{ width: '400px', height: '100' }} />
+          <img src={ImageSrc} alt={C_name} style={{  width: '400px',
+    position: 'relative',
+    bottom: '145px',
+    right: '62px',
+    height: '358px',
+    transform: 'rotateY(170deg)'  }} />
         </div>
         <h2 className="model-name">{C_name}</h2>
         <div className='details-container'>

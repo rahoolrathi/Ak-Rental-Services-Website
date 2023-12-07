@@ -12,21 +12,21 @@ export default function Card() {
 				<span>
 				  <i className="fa fa-phone mr-2"></i>{" "}
 				</span>
-				+91-9998887776
+				+92-3480338325
 			  </li>
 			  <li className="mt-2">
 				<span>
 				  <i className="fa fa-envelope mr-2"></i>{" "}
 				</span>
-				<span className="text-black">feedback@geeksforgeeks.org</span>
+				<span className="text-black">feedback@AK_rental.org</span>
 			  </li>
 			  <li className="mt-2">
 				<span>
 				  <i className="fa-solid fa-map-pin mr-2"></i>{" "}
 				</span>
-				A-143, 9th Floor, Sovereign Corporate
+				Gulshan-e-hadeed 
 				<span className="pl-4">
-				  Tower, Sector-136, Noida, Uttar Pradesh
+				 Phase 1 karachi, pakistan
 				</span>
 			  </li>
 			</ul>
@@ -42,16 +42,14 @@ export default function Card() {
 			  <span>
 				<i className="fa fa-envelope mr-2"></i>{" "}
 			  </span>
-			  <span className="text-black">branding@geeksforgeeks.org</span>
+			  <span className="text-black">kanteshkumar813@gmail.com</span>
 			</div>
 			<div className="mt-2 text-left">
 			  <span>
 				<i className="fa-solid fa-map-pin mr-2"></i>{" "}
 			  </span>
-			  A-143, 9th Floor, Sovereign Corporate
-			  Tower, Sector-
+	Gulshan-e-Hadeed Phase one karachi
 			  <span className="pl-5">
-				136, Noida, Uttar Pradesh
 			  </span>
 			</div>
 		  </div>

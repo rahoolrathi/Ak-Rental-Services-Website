@@ -70,6 +70,7 @@ setShowM(false);
         <div className="form-group">
           <label htmlFor="carSelect">Car Model:</label>
           <input
+          style={{color:"black"}}
             type="text"
             value={props.C_name}
             readOnly
@@ -80,6 +81,7 @@ setShowM(false);
         <div className="form-group">
           <label htmlFor="pickupDateInput">Pick-up Date:</label>
           <input
+          style={{color:"black"}}
             type="date"
             value={pickupDate}
             onChange={handlePickupDateChange}
@@ -89,6 +91,7 @@ setShowM(false);
         <div className="form-group">
           <label htmlFor="pickupTimeSelect">Pick-up Time:</label>
           <select
+          style={{color:"black"}}
             id="pickupTimeSelect"
             value={pickupTime}
             onChange={handlePickupTimeChange}
@@ -114,6 +117,7 @@ setShowM(false);
           <label htmlFor="dropoffDateInput">Drop-off Date:</label>
           <input
             type="date"
+            style={{color:"black"}}
             value={dropoffDate}
             onChange={handleDropoffDateChange}
             id="dropoffDateInput"
@@ -121,6 +125,7 @@ setShowM(false);
         </div>
 
         <button
+       
           type="submit"
 
         >

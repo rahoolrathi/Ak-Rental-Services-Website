@@ -1,21 +1,23 @@
 .car-card {
-    width: 600px;
-    height:630px ;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    margin-left: 90px;
-    margin-bottom: 50px;
-    
-  }
+  width: 464px;
+  height: 565px;
+  background-color: rgb(255, 255, 255);
+  border: 4px solid #5908d1;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  margin-left: 118px;
+  margin-bottom: 80px;
+  position: relative;
+}
   .icon {
     width: 20px; /* You can adjust this value as needed */
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
+    margin-right: 8px;
   }
   .car-info {
-    margin-bottom: 20px;
+    margin-bottom: -179px;
   }
   
   .car-image img {
@@ -29,6 +31,9 @@
     font-size: 1.5rem;
     margin: 10px 0;
     font-weight: bold;
+    position: relative;
+    bottom: 190px;
+
   }
   
   .pricing {
@@ -57,10 +62,11 @@
   }
   
   .detail {
-    text-align: left;
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
+    display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
   }
   .detail_R {
     text-align: right;
@@ -75,6 +81,9 @@ size: 20px;
   .details-container {
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: 167px;
+    align-items: self-start
   }
   
   .detail_R {
@@ -87,4 +96,7 @@ size: 20px;
     color: #007bff;
     cursor: pointer;
   }
-  
+
+  .car-card:hover {
+    transform: scale(1.05);
+  }
