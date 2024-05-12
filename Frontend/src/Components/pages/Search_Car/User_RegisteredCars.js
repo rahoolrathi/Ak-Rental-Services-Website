@@ -1,5 +1,5 @@
 // User_RegisteredCars.js
-
+import { Box as MuiBox, Typography } from '@mui/material';
 import Car_Card from "./SC_UI/Car_Card";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import Civic from '../../Assets/Civic.png';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import './SC_UI/User_RegisteredCars.css';
 import { blue } from "@mui/material/colors";
 
@@ -28,11 +27,39 @@ const User_RegisteredCars = () => {
 
   return (
     <div>
-      <Box sx={{ textAlign: 'center', padding: '20px' }}>
-        <Typography variant="h2" sx={{background:'grey',color:"black" ,fontWeight: 'bold', marginBottom: '20px', animation: 'fadeIn 2s ease-in-out' }}>
-          User Registered Cars for Rent
-        </Typography>
-      </Box>
+
+<MuiBox
+  sx={{
+    textAlign: 'center',
+    padding: '20px',
+    borderRadius: '10px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.05)',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+    },
+  }}
+>
+  <Typography
+    variant="h1"
+    sx={{
+      background: '#cccccc', // Grey background color
+      color: 'black',
+      fontWeight: 'bold',
+      marginBottom: '20px',
+      fontSize: '3rem',
+      borderRadius: '10px',
+      padding: '20px',
+      display: 'inline-block',
+      animation: 'fadeInUp 1s ease',
+    }}
+  >
+    User Registered Cars for Rent
+  </Typography>
+</MuiBox>
+
+      <br></br>
       <div className="car-cards-container">
         <Box sx={{ width: '100%', marginTop: '50px' }}>
           <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

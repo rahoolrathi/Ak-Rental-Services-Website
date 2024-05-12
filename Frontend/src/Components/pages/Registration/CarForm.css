@@ -17,7 +17,7 @@ form {
 .form-heading {
   font-size: 2rem;
   text-align: center;
-  color: #333; /* Dark gray text color */
+  color:grey; /* Dark gray text color */
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -32,17 +32,19 @@ input {
   margin-bottom: 10px;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
+.button {
+  background-color: gray;
   border: none;
-  border-radius: 5px;
+  color: black; /* Change text color to black */
+  font-weight: bold; /* Make text bold */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  margin-top: 10px;
+  border-radius: 8px;
 }
 
-button:hover {
-  background-color: #45a049;
-}
+

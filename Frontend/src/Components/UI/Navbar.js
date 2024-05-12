@@ -1,42 +1,43 @@
 import React from "react";
 import { Link, useLocation } from 'react-router-dom';
 import img from "../Assets/logo.png"
+import './navbar.css'
 
 const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full z-20 h-25 bg-white">
-      <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://geeksforgeeks.org/" className="flex items-center">
+    <nav>
+      <div className="logo">
+        {/* <Link to='/' className="logo">
         <img src={img} className="mr-2 w-70 h-12 bg-transparent" alt="GFG Logo" />
           {/* <span className="self-center text-2xl font-semibold">AK CAR </span> */}
-        </a>
-        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        {/* </Link> */} 
+        <div id="navbar-sticky" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col p-4 md:p-0 font-medium md:flex-row md:space-x-8">
             <li>
-            <Link to='/' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+            <Link to='/'className="Link">
                 Home
               </Link>
             </li>
             <li>
-              <Link to='/rent' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+              <Link to='/rent'className="Link">
                 Rent a Car
               </Link>
             </li>
             <li>
-              <Link to='/register' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+              <Link to='/register'className="Link">
                 Register Car
               </Link>
             </li>
             <li>
-              <Link to='/SignIn' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+              <Link to='/SignIn'className="Link">
                 Owner SignIn
               </Link>
             </li>
            
             <li>
-              <Link to='/Aboutus' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
+              <Link to='/Aboutus'className="Link">
                 About us
               </Link>
             </li>

@@ -38,17 +38,17 @@ input {
 }
 
 button {
-  width: auto; /* Adjusted width to content */
-  padding: 8px 12px; /* Smaller padding */
-  background-color: #4caf50; /* Green button color */
-  color: #fff; /* White text color */
-  border: 2px solid #000; /* Black border */
-  border-radius: 3px; /* Smaller border radius */
+  background-color: gray;
+  border: none;
+  color: black; /* Change text color to black */
+  font-weight: bold; /* Make text bold */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+  border-radius: 8px;
 }
 
-button:hover {
-  background-color: #000; /* Black on hover */
-  border-color: #000; /* Black border on hover */
-}

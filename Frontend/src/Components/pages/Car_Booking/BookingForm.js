@@ -64,9 +64,9 @@ setShowM(false);
     <>
     { showM && <Modal Title="Invalid Details" message="Invalid Details" handleclose={handleclose} />}
       <form className="booking-form" onSubmit={handleSubmit}>
-        <div className="form-title">
-          <h2>BOOK A CAR TODAY</h2>
-        </div>
+        <h2 className="form-title">
+          BOOK A CAR TODAY
+        </h2>
         <div className="form-group">
           <label htmlFor="carSelect">Car Model:</label>
           <input
@@ -79,24 +79,26 @@ setShowM(false);
         </div>
 
         <div className="form-group">
-          <label htmlFor="pickupDateInput">Pick-up Date:</label>
+          <label htmlFor="pickupDateInput">*Pick-up Date:</label>
           <input
           style={{color:"black"}}
             type="date"
             value={pickupDate}
             onChange={handlePickupDateChange}
             id="pickupDateInput"
+            placeholder="Enter Date"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="pickupTimeSelect">Pick-up Time:</label>
+          <label htmlFor="pickupTimeSelect">*Pick-up Time:</label>
           <select
           style={{color:"black"}}
             id="pickupTimeSelect"
             value={pickupTime}
             onChange={handlePickupTimeChange}
+            placeholder="Select Time"
           >
-            <option></option>
+            <option value="" disabled selected>Select Time</option>
             <option value="10:00">10:00 AM</option>
     <option value="11:00">11:00 AM</option>
     <option value="12:00">12:00 PM</option>
@@ -114,7 +116,7 @@ setShowM(false);
         </div>
 
         <div className="form-group">
-          <label htmlFor="dropoffDateInput">Drop-off Date:</label>
+          <label htmlFor="dropoffDateInput">*Drop-off Date:</label>
           <input
             type="date"
             style={{color:"black"}}
@@ -125,6 +127,7 @@ setShowM(false);
         </div>
 
         <button
+        className="btn-Booking"
        
           type="submit"
 

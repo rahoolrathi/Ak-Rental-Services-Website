@@ -16,6 +16,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../../UI/Model';
 import { useState } from 'react';
+import './adminSignin.css'
 
 function Copyright(props) {
   return (
@@ -65,9 +66,12 @@ const handleclose=()=>
 {
   setshow(false);
 }
+
+
   return (
+    
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh', bgcolor: 'grey' }}>
         <CssBaseline />
         <Grid
           item
@@ -78,12 +82,17 @@ const handleclose=()=>
             backgroundImage: 'url(https://images.unsplash.com/photo-1585503418537-88331351ad99?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              t.palette.mode === 'grey' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12}   sx={{
+
+                  bgcolor: '#757575', // Grey color
+
+                }} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -91,11 +100,12 @@ const handleclose=()=>
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+             
             }}
           >
            { show && <Modal Title="Error" message="Invalid Credentails" handleclose={handleclose} />}
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 1, bgcolor: 'black' }}>
+              <LockOutlinedIcon sx={{ backgroundColor:'black'}}/>
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in
@@ -129,27 +139,24 @@ const handleclose=()=>
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  bgcolor: 'black', // Grey color
+                  '&:hover': {
+                    bgcolor: '#616161', // Darker grey color on hover
+                  },
+                }}
               >
                 Sign In
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
+              
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>
       </Grid>
     </ThemeProvider>
+    
   );
 }

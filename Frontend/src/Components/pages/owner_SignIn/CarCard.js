@@ -34,7 +34,7 @@ function AdminCar(props) {
 
       </Card.Body>
       <Button onClick={()=>
-      {handleDelete(props.Regno)}}  style={{ height: "47px", margin: "5px", width: "275px" }} variant="contained">
+      {handleDelete(props.Regno)}}  style={{ height: "47px", margin: "5px", width: "275px"}} variant="contained">
   UnRegister
 </Button>
 

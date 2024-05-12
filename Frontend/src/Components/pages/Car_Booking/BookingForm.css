@@ -8,11 +8,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .form-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+
   .form-group {
     margin-bottom: 15px;
   }
@@ -32,19 +28,24 @@
     box-sizing: border-box; /* Ensure padding doesn't affect the width */
   }
   
-  button {
-    width: calc(100% - 20px); /* Set button width to 100% minus padding */
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+  .btn-Booking {
+    background-color: gray;
     border: none;
-    border-radius: 5px;
+    color: black; /* Change text color to black */
+    font-weight: bold; /* Make text bold */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    border-radius: 8px;
   }
   
-  button:hover {
-    background-color: #0056b3;
+  .btn-Booking:hover {
+    background-color: #888888; /* Darker gray on hover */
   }
+  
+ 
   

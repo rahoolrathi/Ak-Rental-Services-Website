@@ -1,0 +1,96 @@
+
+.heading {
+    background-color: grey; /* Set background color to grey */
+    width: 100%; /* Make the navigation bar full width */
+    height: fit-content; /* Adjust height based on content */
+    padding: 10px 20px; /* Add padding for better spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  nav {
+    padding: 5px 5%;
+    display: flex;
+    align-items: center;
+    background-color: grey;
+    font-family: fantasy;
+    margin: 10px;
+    box-shadow: rgb(218 197 197) 0px 2px 5px -1px, rgb(59 23 23 / 30%) 0px 1px 3px -1px;
+    z-index: 1;
+    flex-direction: column;
+  }
+  nav .logo {
+    display: flex;
+    align-items: center;
+  }
+  nav .logo img {
+    height: 25px;
+    width: auto;
+    margin-right: 10px;
+  }
+  nav .logo h1 {
+    font-size: 1.1rem;
+    background: linear-gradient(to right, #b927fc 0%, #2c64fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 1.5rem;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 95%;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  .Link {
+    display: block;
+    padding: 8px 12px; /* Equivalent to py-2 pl-3 pr-4 */
+    color: #1a202c; /* Equivalent to text-gray-900 */
+    border-radius: 4px; /* Equivalent to rounded */
+    margin-left: 50px;
+    margin-right: 50px;
+    text-decoration: none;
+    font-size: large;
+  }
+  
+  .Link:hover {
+    color: grey;
+    background-color: white; /* Equivalent to hover:bg-gray-100 */
+    transition: background-color 0.9s ease; 
+  }
+
+
+  
+  nav ul li a:hover {
+     /* Change background color on hover */
+    transition: background-color 0.9s ease; /* Add transition effect */
+  }
+  #navbar-sticky {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    #navbar-sticky {
+      display: flex;
+      width: auto;
+      order: 1;
+    }
+  }
+  

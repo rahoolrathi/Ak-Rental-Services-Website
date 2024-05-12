@@ -120,23 +120,25 @@ if(data[0]!="Error")
         <h2 className="form-title">Personal Information</h2>
         <div className="input-group">
           <div className="input-half">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">*First Name</label>
             <input
               type="text"
               id="firstName"
               className="form-input"
               required
+              placeholder='Enter Your Name'
               value={formData.firstName}
               onChange={handleChange}
             />
           </div>
           <div className="input-half">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">*Last Name</label>
             <input
               type="text"
               id="lastName"
               className="form-input"
               required
+              placeholder='Enter your Last name'
               value={formData.lastName}
               onChange={handleChange}
             />
@@ -144,10 +146,11 @@ if(data[0]!="Error")
         </div>
         <div className="input-group">
           <div className="input-half">
-            <label htmlFor="age">Age</label>
+            <label htmlFor="age">*Age</label>
             <input
               type="number"
               id="age"
+              placeholder='Enter your Age'
               className="form-input"
               required
               value={formData.age}
@@ -155,9 +158,10 @@ if(data[0]!="Error")
             />
           </div>
           <div className="input-half">
-            <label htmlFor="phoneNumber">Phone Number</label>
+            <label htmlFor="phoneNumber">*Phone Number</label>
             <input
               type="tel"
+              placeholder='Enter your Phone Number'
               id="phoneNumber"
               className="form-input"
               required
@@ -167,10 +171,11 @@ if(data[0]!="Error")
           </div>
         </div>
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">*Email</label>
           <input
             type="email"
             id="email"
+            placeholder='Enter your Email'
             className="form-input"
             required
             value={formData.email}
@@ -178,9 +183,10 @@ if(data[0]!="Error")
           />
         </div>
         <div className="input-group">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">*Address</label>
           <input
             type="text"
+            placeholder='Enter your Address'
             id="address"
             className="form-input"
             required
@@ -191,9 +197,10 @@ if(data[0]!="Error")
         <div className="input-group">
   
           <div className="input-half">
-            <label htmlFor="country">Country</label>
+            <label htmlFor="country">*Country</label>
             <input
               type="text"
+              placeholder='Enter your Country'
               id="country"
               className="form-input"
               required
@@ -202,14 +209,16 @@ if(data[0]!="Error")
             />
           </div>
         </div>
-        <div className="input-group">
-          <label>Gender</label>
+        <div className="input-group2">
+          <label>*Gender</label>
           <div className="radio-group">
             <input
               type="radio"
               id="gender"
+
               name="gender"
               value="M"
+              required 
               checked={formData.gender === 'M'}
               onChange={handleChange}
             />
@@ -220,6 +229,7 @@ if(data[0]!="Error")
               id="gender"
               name="gender"
               value="F"
+              required 
               checked={formData.gender === 'F'}
               onChange={handleChange}
             />
@@ -228,17 +238,18 @@ if(data[0]!="Error")
         </div>
 
         <div className="input-group">
-          <label htmlFor="zipCode">Zip Code</label>
+          <label htmlFor="zipCode">*Zip Code</label>
           <input
             type="number"
             id="zipCode"
+            placeholder='Enter your Zip Code'
             className="form-input"
             required
             value={formData.zipCode}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="form-button">
+        <button type="submit" className="btn-Booking">
           Book Now
         </button>
       </form>

@@ -15,12 +15,16 @@
     margin: 0 auto; /* Add this line to center the form horizontally */
 }
 
+.radio-group{
+    display: flex;
+    flex-direction: row-reverse;
 
+}
 
 .form-title {
     text-align: center;
     margin-bottom: 30px;
-    color: #007BFF;
+    color: grey;
     font-size: 28px;
     font-weight: bold;
 }
@@ -37,6 +41,7 @@
 
 .input-group {
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -56,3 +61,20 @@
     display: block;
     margin: 0 auto;
 }
+/* Style for the radio group container */
+.input-group2 {
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+  
+  /* Style for each radio button */
+  .input-group2 input[type="radio"] {
+    margin-right: 8px; /* Adjust spacing between radio button and label */
+  }
+  
+  /* Style for radio button labels */
+  .input-group2 label {
+    font-size: 16px; /* Adjust label font size */
+    margin-right: 15px; /* Adjust spacing between labels */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  

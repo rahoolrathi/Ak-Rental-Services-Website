@@ -1,6 +1,6 @@
 .car-card {
   width: 464px;
-  height: 565px;
+  height: 593px;
   background-color: rgb(255, 255, 255);
   border: 4px solid #5908d1;
   border-radius: 20px;
@@ -26,7 +26,12 @@
     display: block;
     margin: 0 auto;
   }
-  
+  .car-image2 img {
+  width: 450px;
+    height: 275px;
+    display: block;
+    margin: 170px auto;
+  }
   .model-name {
     font-size: 1.5rem;
     margin: 10px 0;
