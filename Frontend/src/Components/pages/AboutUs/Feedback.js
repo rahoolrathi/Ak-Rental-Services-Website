@@ -1,17 +1,48 @@
 // Feedback.js 
+import Modal from "../../UI/Model"
+import { useState } from "react"
 
 export default function Feedback() { 
+	let [show,setshow]=useState(false)
+
+	const handleSubmit= (e) => {
+		
+		setshow(true)
+			
+		}
+
+		const handleclose=()=>
+			{
+			  setshow(false);
+			}
+			
+
+
 	return( 
-		<div className="absolute mt-52 ml-48 
-						w-80 float-left border-2 p-2 
-						rounded-xl shadow-xl text-xl"> 
+		<>
+		{ show && <Modal Title="Confirmation" message="Thanks for your Feedback" handleclose={handleclose} />}
+		<div style={{
+     position: 'absolute',
+	 top: '80%',
+
+	 left: '51%',
+	 transform: 'translate(-50%, -50%)',
+	 width: '370px',
+	 border: '2px solid',
+	 padding: '2px',
+	 borderRadius: '1rem',
+	 boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
+	 fontSize: '1.25rem',
+	 display: 'flex',
+	 justifyContent: 'center'
+}}>
 			<form> 
-				<p className="text-2xl">Feedback & Queries</p> 
+				<p  style={{ fontSize: '2rem', color: 'black' }}>Feedback & Queries</p> 
 				<div> 
 					<label className="text-sm">Select Issue*</label> 
 					<br></br> 
-					<select className="bg-gray-50 border border-gray-300 
-										text-gray-600 text-sm rounded-lg 
+					<select className="bg-white-50 border border-black-300 
+										text-black-600 text-sm rounded-lg 
 										focus:border-blue-500 w-full p-2.5"> 
 						<option value="Feedback" > 
 							-- Select Your Query -- 
@@ -35,7 +66,7 @@ export default function Feedback() {
 					<br></br> 
 					<label className="text-sm">Email Address*</label> 
 					<br></br> 
-					<input className="bg-gray-50 border border-gray-300 
+					<input className="bg-white-50 border border-gray-300 
 										text-sm rounded-lg focus:border-blue-500 
 										w-full p-2.5"
 							type="email"
@@ -63,14 +94,23 @@ export default function Feedback() {
 								placeholder="Max Allowed Characters: 300"> 
 					</textarea> 
 					<br></br> 
-					<button className="bg-blue-500 hover:bg-blue-700 
-										text-white font-bold 
-										py-2 px-4 rounded"
-							type="button"> 
+					<button style={{ 
+        backgroundColor: '#4299e1',
+        color: 'white',
+        fontWeight: 'bold',
+        padding: '0.5rem 1rem',
+        borderRadius: '0.5rem',
+        border: 'none',
+		marginLeft:"33%",
+        cursor: 'pointer',
+        transition: 'background-color 0.3s',
+    }}
+							type="button" onClick={handleSubmit}> 
 						Submit 
 					</button> 
 				</div> 
 			</form> 
 		</div> 
+		</>
 	) 
 }

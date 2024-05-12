@@ -57,7 +57,7 @@ const OwnerForm = ({ onNext }) => {
   <h2 className="form-heading">Owner Sign Up</h2>
   <form onSubmit={handleSubmit}>
     <label>
-      Username:
+      *Username:
       <input
         type="text"
         style={{ color: 'black' }}
@@ -69,7 +69,7 @@ const OwnerForm = ({ onNext }) => {
       />
     </label>
     <label>
-      Password:
+      *Password:
       <input
         type="password"
         style={{ color: 'black' }}
@@ -81,7 +81,7 @@ const OwnerForm = ({ onNext }) => {
       />
     </label>
     <label>
-      Address:
+      *Address:
       <input
         type="text"
         style={{ color: 'black' }}
@@ -93,7 +93,7 @@ const OwnerForm = ({ onNext }) => {
       />
     </label>
     <label>
-      ph_Number:
+      *ph_Number:
       <input
         type="text"
         style={{ color: 'black' }}
@@ -105,7 +105,7 @@ const OwnerForm = ({ onNext }) => {
       />
     </label>
     <label>
-      Gender:
+      *Gender:
       <div>
         <label>
           <input

@@ -14,7 +14,7 @@ export default function Icons() {
 						rounded-r-xl "
 				style={{ backgroundColor: "#1da1f2" }}> 
 				<svg 
-					xmlns="http://www.w3.org/2000/svg"
+					xmlns="www.linkedin.com/in/kantesh-kumar"
 					className="mr-2 h-3.5 w-3.5"
 					fill="currentColor"
 					viewBox="0 0 24 24"> 
@@ -33,7 +33,7 @@ export default function Icons() {
 				rounded-r-xl " 
 				style={{ backgroundColor: "#1877f2" }}> 
 				<svg 
-					xmlns="http://www.w3.org/2000/svg" 
+					xmlns="www.linkedin.com/in/kantesh-kumar" 
 					className="mr-2 h-3.5 w-3.5" 
 					fill="currentColor" 
 					viewBox="0 0 24 24"> 
@@ -52,7 +52,7 @@ export default function Icons() {
 				rounded-r-xl" 
 				style={{ backgroundColor: "#c13584" }}> 
 				<svg 
-					xmlns="http://www.w3.org/2000/svg" 
+					xmlns="www.linkedin.com/in/kantesh-kumar" 
 					className="mr-2 h-3.5 w-3.5" 
 					fill="currentColor" 
 					viewBox="0 0 24 24"> 
@@ -71,7 +71,7 @@ export default function Icons() {
 				rounded-r-xl" 
 				style={{backgroundColor: "#ff0000"}}> 
 				<svg 
-					xmlns="http://www.w3.org/2000/svg" 
+					xmlns="www.linkedin.com/in/kantesh-kumar" 
 					className="mr-2 mt-0.5 h-4.5 w-3.5" 
 					fill="currentColor" 
 					viewBox="0 0 24 24"> 

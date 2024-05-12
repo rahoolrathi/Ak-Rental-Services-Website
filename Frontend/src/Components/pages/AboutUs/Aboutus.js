@@ -12,12 +12,10 @@ return (
 	<Welcome/> 
 	<Icons/> 
 	<Card/> 
-	<br/>
-	<br/>
 	<Feedback/> 
-	<img src= 
+	{/* <img src= 
 'https://media.geeksforgeeks.org/wp-content/uploads/20230821104522/gfg-(5).jpg'
-		style={{marginTop:"14%", marginLeft:"44%"}}/> 
+		style={{marginTop:"14%", marginLeft:"44%"}}/>  */}
 	</div> 
 ); 
 } 
