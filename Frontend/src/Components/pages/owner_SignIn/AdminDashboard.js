@@ -7,8 +7,10 @@ import Button from '@mui/material/Button';
 import axios from "axios";
 import CarForm from "../Registration/CarForm";
 import { useState ,useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
+  const navigate=useNavigate();
   const location = useLocation();
   const ownerId  = location.state;
   const [ownerData, setOwnerData] = useState();
@@ -56,7 +58,11 @@ const handleCarFormBack=(down)=>
   }
   
 }
-
+const signout=()=>
+  {
+  
+    navigate("/SignIn")
+  }
 const handleCarData = async (carData) => {
   setCarData(carData);
 
@@ -101,7 +107,7 @@ const handleCarData = async (carData) => {
 return (
   <>
   <div className="dashboard">
-    
+  <Button onClick={()=>signout()} style={{ marginLeft: '1350px', marginBottom:"22px",backgroundColor:"gray",color:"black" }} variant="contained">Sign out</Button>
     <div className="stylish-car-section">
       <h2 className="registered-cars-heading">Registered Cars</h2>
       <br />

@@ -70,15 +70,17 @@ const OwnerForm = ({ onNext }) => {
     </label>
     <label>
       *Password:
-      <input
-        type="password"
-        style={{ color: 'black' }}
-        name="password"
-        value={ownerData.password}
-        onChange={handleChange}
-        placeholder="Enter your Password"
-        required
-      />
+<input
+  type="password"
+  style={{ color: 'black' }}
+  name="password"
+  value={ownerData.password}
+  onChange={handleChange}
+  placeholder="Enter your Password"
+  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+  title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one digit."
+  required
+/>
     </label>
     <label>
       *Address:
