@@ -20,12 +20,10 @@ CREATE TABLE Car (
   Luggage INTEGER,
   AC VARCHAR(1)
 );
-drop table car;
-select * from car;
+
 
 ALTER TABLE Car ADD CONSTRAINT Car_PK PRIMARY KEY (Reg_no) ;
-drop table Car_Registration;
-drop table Owner;
+
 
 CREATE TABLE Car_Registration 
 ( 
@@ -141,8 +139,7 @@ BEGIN
 END //
 
 DELIMITER ;
-SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=52;
-Call GetCustomerInfoByRentalRegNo(3);
+
 
 
 -- Create Trigger
@@ -221,26 +218,5 @@ BEGIN
 END //
 
 DELIMITER ;
-
-select * from owner;
-
-call DeleteCarData("2316");
-
-ALTER TABLE Owner
-ADD COLUMN Password VARCHAR(255) NOT NULL;
-
-update Car set Available='Y' limit 1000;     
-select * from Rental_Reg;
-
-select * from Customer;
-select * from Owner;
-
-select * from Owner where O_id = 52 and Password='allinone';
-
-DELETE FROM transactions WHERE T_id LIKE '%' LIMIT 1000;
-DELETE FROM Rental_Reg WHERE Reg_id LIKE '%' LIMIT 1000;
-DELETE FROM Customer WHERE Cus_id LIKE '%' LIMIT 1000;
-
-DELETE FROM owner WHERE o_id LIKE '%' LIMIT 1000;
 
 
