@@ -25,7 +25,7 @@ app.use(cors()); // Enable CORS
 const connection =mysql.createConnection({
   host:'localhost',
   user:"root",
-  password:"root",
+  password:"abc123",
   database:'Car_rental'
 
 })
