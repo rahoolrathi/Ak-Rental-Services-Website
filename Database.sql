@@ -1,5 +1,6 @@
-create database Car_rental;
-use Car_rental;
+drop database Car_rental;
+CREATE DATABASE Car_rental;
+USE Car_rental;
 
 CREATE TABLE Car (
   Reg_no VARCHAR(20) NOT NULL,
@@ -21,18 +22,13 @@ CREATE TABLE Car (
   AC VARCHAR(1)
 );
 
+ALTER TABLE Car ADD CONSTRAINT Car_PK PRIMARY KEY (Reg_no);
 
-ALTER TABLE Car ADD CONSTRAINT Car_PK PRIMARY KEY (Reg_no) ;
-
-
-CREATE TABLE Car_Registration 
+CREATE TABLE car_registration 
 ( 
   CR_id INT AUTO_INCREMENT PRIMARY KEY , 
   Car_Reg_no VARCHAR(20) NOT NULL 
 ) AUTO_INCREMENT = 1000;
-
-
-
 
 CREATE TABLE Customer 
 ( 
@@ -45,18 +41,15 @@ CREATE TABLE Customer
   Gender VARCHAR(1) NOT NULL 
 ) AUTO_INCREMENT = 1000;
 
-
-
-CREATE TABLE Owner 
+CREATE TABLE owner 
 ( 
   O_id INT AUTO_INCREMENT PRIMARY KEY , 
   Name VARCHAR(50) NOT NULL , 
   Address VARCHAR(4000) NOT NULL , 
   ph_Number VARCHAR(13) NOT NULL , 
   Gender VARCHAR(1) NOT NULL ,
-    Password VARCHAR(255) NOT NULL 
-)AUTO_INCREMENT = 1000 ;
-
+  Password VARCHAR(255) NOT NULL 
+) AUTO_INCREMENT = 1000;
 
 CREATE TABLE Rental_Reg 
 ( 
@@ -68,31 +61,25 @@ CREATE TABLE Rental_Reg
   Drop_off_TD TIMESTAMP NOT NULL , 
   Customer_Cus_id int NOT NULL , 
   Car_Reg_no VARCHAR(20) NOT NULL 
-)AUTO_INCREMENT = 1000 ;
-drop table Rental_Reg;
+) AUTO_INCREMENT = 1000;
 
-drop table Transactions;
 CREATE TABLE Transactions (
   T_id INT AUTO_INCREMENT PRIMARY KEY,
   Rental_Reg_Reg_id Int UNIQUE,
   FOREIGN KEY (Rental_Reg_Reg_id) REFERENCES Rental_Reg(Reg_id)
-)AUTO_INCREMENT = 1000;
-
-
-
+) AUTO_INCREMENT = 1000;
 
 ALTER TABLE Car ADD CONSTRAINT Car_Owner_FK FOREIGN KEY (Owner_O_id) 
-REFERENCES Owner (O_id) ;
+REFERENCES owner (O_id);
 
-ALTER TABLE Car_Registration ADD CONSTRAINT Car_Registration_Car_FK FOREIGN KEY (Car_Reg_no) 
-REFERENCES Car (Reg_no) ;
-
+ALTER TABLE car_registration ADD CONSTRAINT Car_Registration_Car_FK FOREIGN KEY (Car_Reg_no) 
+REFERENCES Car (Reg_no);
 
 ALTER TABLE Rental_Reg ADD CONSTRAINT Rental_Reg_Car_FK FOREIGN KEY (Car_Reg_no) 
-REFERENCES Car (Reg_no) ;
+REFERENCES Car (Reg_no);
 
 ALTER TABLE Rental_Reg ADD CONSTRAINT Rental_Reg_Customer_FK FOREIGN KEY (Customer_Cus_id) 
-REFERENCES Customer (Cus_id) ;
+REFERENCES Customer (Cus_id);
 
 DELIMITER //
 
@@ -125,6 +112,7 @@ BEGIN
 END //
 
 DELIMITER ;
+
 DROP PROCEDURE IF EXISTS GetCustomerInfoByRentalRegNo;
 
 DELIMITER //
@@ -140,28 +128,24 @@ END //
 
 DELIMITER ;
 
-
-
 -- Create Trigger
 DELIMITER //
 
 CREATE PROCEDURE UpdateCarAvailability()
 BEGIN
   UPDATE Car C
-  JOIN Rental_Reg R ON C.reg_no = R.car_reg_no
-  SET C.available = 'Y'
-  WHERE R.car_reg_no = C.reg_no
-    AND R.drop_off_TD <= CURRENT_TIMESTAMP
-    AND R.drop_off_TD = (
-      SELECT MAX(drop_off_TD)
+  JOIN Rental_Reg R ON C.Reg_no = R.Car_Reg_no
+  SET C.Available = 'Y'
+  WHERE R.Car_Reg_no = C.Reg_no
+    AND R.Drop_off_TD <= CURRENT_TIMESTAMP
+    AND R.Drop_off_TD = (
+      SELECT MAX(Drop_off_TD)
       FROM Rental_Reg
-      WHERE car_reg_no = C.reg_no
+      WHERE Car_Reg_no = C.Reg_no
     );
 END //
 
 DELIMITER ;
-
-
 
 DELIMITER //
 
@@ -172,12 +156,12 @@ BEGIN
     DECLARE done BOOLEAN DEFAULT FALSE;
 
     DECLARE carRegIds CURSOR FOR
-        SELECT CR_id FROM Car_Registration WHERE Car_Reg_no = regNo;
+        SELECT CR_id FROM car_registration WHERE Car_Reg_no = regNo;
 
     -- Declare handler for exceptions
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
-    -- Loop through all Car_Registration IDs
+    -- Loop through all car_registration IDs
     OPEN carRegIds;
     read_loop: LOOP
         FETCH carRegIds INTO curId;
@@ -188,8 +172,8 @@ BEGIN
         -- Delete records from Transactions table
         DELETE FROM Transactions WHERE Rental_Reg_Reg_id IN (SELECT Reg_id FROM Rental_Reg WHERE Car_Reg_no = regNo);
 
-        -- Delete records from Car_Registration table
-        DELETE FROM Car_Registration WHERE Car_Reg_no = regNo;
+        -- Delete records from car_registration table
+        DELETE FROM car_registration WHERE Car_Reg_no = regNo;
 
         -- Delete records from Rental_Reg table
         DELETE FROM Rental_Reg WHERE Car_Reg_no = regNo;
@@ -217,6 +201,6 @@ BEGIN
     WHERE Reg_no = NEW.Car_Reg_no;
 END //
 
+
 DELIMITER ;
-
-
+select * from owner;

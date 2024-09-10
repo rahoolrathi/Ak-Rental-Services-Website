@@ -5,8 +5,7 @@ const port = 3001;
 const mysql = require('mysql2');
 const uuid = require('uuid');
 const multer = require('multer');
-
-
+require('dotenv').config();
 const storage = multer.diskStorage({
   destination:function(req,file,cb)
   {
@@ -22,13 +21,12 @@ app.use(cors()); // Enable CORS
 // Middleware to parse JSON request bodies
 
 
-const connection =mysql.createConnection({
-  host:'localhost',
-  user:"root",
-  password:"abc123",
-  database:'Car_rental'
-
-})
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
+});
 connection.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL: ' + err.stack);
@@ -73,7 +71,7 @@ app.get('/ak', (req, res) => {
     }
 
     // Select available cars
-    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=2';
+    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=16';
 
     connection.query(selectQuery, (error, results) => {
       if (error) {
@@ -98,7 +96,7 @@ app.get('/', (req, res) => {
     }
 
     // Select available cars
-    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id <> 52';
+    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id <> 16';
 
     connection.query(selectQuery, (error, results) => {
       if (error) {
@@ -133,7 +131,7 @@ app.post('/SignIn', async (req, res) => {
   try {
     const { id, password } = req.body;
 
-    connection.query("SELECT * FROM Owner WHERE O_id = ? AND Password = ?", [id, password], (error, result) => {
+    connection.query("SELECT * FROM owner WHERE O_id = ? AND Password = ?", [id, password], (error, result) => {
       if (error) {
         console.error('Error during owner sign-in:', error);
         return res.status(500).json({ message: 'Internal Server Error' });
