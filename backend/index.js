@@ -73,7 +73,7 @@ app.get('/ak', (req, res) => {
     }
 
     // Select available cars
-    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=52';
+    const selectQuery = 'SELECT * FROM Car WHERE Available = "Y" and Owner_O_id=2';
 
     connection.query(selectQuery, (error, results) => {
       if (error) {
