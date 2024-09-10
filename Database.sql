@@ -1,4 +1,3 @@
-drop database Car_rental;
 CREATE DATABASE Car_rental;
 USE Car_rental;
 
